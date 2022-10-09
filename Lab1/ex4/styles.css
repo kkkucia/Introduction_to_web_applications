@@ -1,0 +1,28 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width:900px;
+    height:400px;
+}
+
+.red{
+    background-color: red;
+    border: 2px solid black;
+    flex-basis:20%;
+    margin:10px;
+}
+
+.blue{
+    background-color: blue;
+    border: 2px solid black;
+    flex-basis:70%;
+    margin:10px;
+}
+
+.yellow{
+    background-color: yellow;
+    border: 2px solid black;
+    flex-basis:93%;
+    margin:10px;
+}

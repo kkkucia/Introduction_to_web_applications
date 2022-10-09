@@ -1,0 +1,107 @@
+@font-face
+{
+font-family: Cokolwiek;
+src:url(assets/PetitFormalScript-Regular.ttf);
+
+}
+
+html {
+    background-color: rgba(150, 231, 213, 0.719);
+}
+
+p {
+    text-align: center;
+  }
+
+#section1{
+    color: red;
+    background-color: black;
+    font-size: 15px;
+    font-family: "Times New Roman", "Arial";
+    transform: rotate(5deg);
+    border: 5px dotted rgb(255, 253, 122);
+}
+
+#section2{
+    color: rgb(56, 184, 24);
+    background-color: rgb(80, 21, 190);
+    font-size: 19px;
+    font-family: "Helvetica";
+    height: 150px;
+    width: 900px;
+    overflow-y: hidden;
+    border: 4px solid salmon;
+    padding-top: 25px;
+    padding-left: 20px;
+}
+
+#section3{
+    color: rgb(255, 255, 255);
+    background-image: url(assets/ameba.jpg);
+    font-size: 15px;
+    font-family: Cokolwiek;
+    height: 150px;
+    width: 900px;
+    overflow-y: scroll;
+    margin: 0 auto;
+}
+
+#section4{
+    color: rgb(249, 68, 255);
+    background-image: url(assets/ameba.jpg);
+    font-size: 15px;
+    font-family: Cokolwiek;
+    transform: rotate(180deg);
+    border: 20px groove lightpink;
+    margin-top: 80px;
+    margin-left: 100px;
+    padding-top: 20px;
+}
+
+#one{
+    border-collapse: collapse;
+    margin: 0 auto;
+}
+
+#one th, #one td{
+    width: 250px;
+    height: 40px;
+    border: 3px solid white;
+    background-color: rgb(54, 90, 209);
+}
+
+#one th{
+    background-color: rgb(35, 81, 233);
+    border-bottom-width: 5px;
+}
+
+#one td{
+    background-color: rgb(122, 170, 233);
+}
+
+#one .light{
+    background-color: rgb(175, 201, 241);
+}
+
+#two{
+    border-collapse: collapse;
+    margin: 20px auto;
+}
+#two th, #two td{
+    width: 250px;
+    height: 40px;
+    border: 2px solid rgb(0, 0, 0);
+    background-color: rgb(159, 161, 168);
+}
+#two th{
+    background-color: rgb(97, 72, 58);
+}
+#europe{
+    background-color: blue;
+    position:absolute;
+    margin-top: 100px;
+}
+#asia{
+    background-color: red;
+    position:absolute;
+}
