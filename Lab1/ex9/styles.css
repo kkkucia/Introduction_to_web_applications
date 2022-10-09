@@ -1,0 +1,16 @@
+html{
+    background: linear-gradient(90deg, rgba(0,36,8,1) 0%, rgba(50,240,31,1) 50%, rgb(145, 184, 28) 100%);
+}
+body{
+    display: flex;
+    flex-direction: column;
+}
+video{
+    margin: 0 auto;
+    margin-bottom: 1%;
+}
+
+audio{
+    margin: 0 auto;
+
+}

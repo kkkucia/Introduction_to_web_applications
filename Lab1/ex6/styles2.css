@@ -1,0 +1,30 @@
+nav{
+    border-left: 2px solid red;
+    border-right: 2px solid red;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-size: 25px;
+    padding: 0.25px;
+    width: 150px;
+    height: 800px;
+}
+#container1{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 40%;
+}
+#container2{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 60%;
+}
+.info{
+    color: white;
+    background-color: red;
+    border: 2px solid blue;
+}
