@@ -1,0 +1,48 @@
+body {
+	font-family: Tahoma, "Lucida Grande", Arial, sans-serif;
+	font-size: 62.5%;
+}
+
+#container{
+    background-color: rgba(248, 247, 239, 0.951);
+    margin: 3%;
+    padding-bottom: 6%;
+    padding-top: 2%;
+}
+header {
+	font-size: 3em;
+    color: white;
+    background-color: rgb(20, 87, 83);
+    padding: 0.5%;
+    padding-left: 3%;
+    border-bottom: 2px solid rgba(240, 207, 19, 0.707);
+    border-top: 2px solid rgba(240, 207, 19, 0.707);
+}
+h2 {
+	font-size: 1.8em;
+    margin-bottom: 0%;
+}
+h3 {
+	font-size: 1.4em;
+	color: #000000;
+    text-align: center;
+}
+p, ul, ol {
+	font-size: 1.2em;
+	line-height: 130%;
+}
+#sidebar{
+    width: 15%;
+    color: #000000;
+    border: 1px solid rgba(240, 207, 19, 0.707);
+    border-top: 3px solid rgba(240, 207, 19, 0.707);
+    background-color:rgb(251, 251, 160);
+    padding: 0.25%;
+    margin: 0.5%;
+    float: right;
+    list-style: square;
+}
+
+.article{
+    margin-left: 3%;
+}

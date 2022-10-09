@@ -1,0 +1,36 @@
+body{
+    margin-left: 40px;
+    margin-right: 40px;
+}
+header{
+    border-left: 2px dashed grey;
+    border-top: 2px dashed grey;
+    font-family: Arial;
+    font-size: 40px;
+    color: rgb(16, 73, 84);
+    padding: 1%;
+}
+
+#intro{
+    border-left: 2px dashed grey;
+    border-top: 2px dashed grey;
+    padding: 1%;
+    margin-top: 0;
+}
+main{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: 516px;
+}
+.photo{
+    padding: 1%;
+    border: 1px ridge rgb(73, 73, 73);
+    box-shadow: 2.5px 2.5px 5px
+}
+.block{
+    width: 210px;
+    text-align: center;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
