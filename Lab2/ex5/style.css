@@ -1,0 +1,112 @@
+@font-face {
+    font-family: Stanberry;
+    src: url(assets/Stanberry.ttf);
+}
+
+body{
+    background-color: rgb(183, 188, 194);
+}
+
+nav
+{
+    width: 270px;
+    padding: 5px 10px 5px 0;
+    background-color: #303030;
+    font-size: 20px;
+    font-family: Stanberry;
+    line-height: 3em;
+    display: flex;
+    flex-direction: column;
+    background-color:white;
+    border-left: 5px solid  #214271;
+    text-align: start;
+    color: #214271;
+}
+
+
+nav .section{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-self:flex-start;
+}
+
+#numberCircle {
+    border: 2px solid #214271;
+    width: 30px;
+    height: 30px;
+    margin: 12px 10px ;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 30px;
+}
+
+nav img{
+    border-radius: 6px;
+    padding: 5px;
+    margin: 5px;
+    width: 32px;
+    height: 32px;
+}
+
+nav a, a:visited{
+    text-decoration: none;
+    color: #214271;
+}
+
+
+nav a .whiteimg{
+    display: none;
+}
+
+nav a .darkimg{
+    border: 1px solid  #214271;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color:#37BDB6;
+    border-bottom-right-radius: 5px;
+    border-top-right-radius: 5px;
+    color: white;
+}
+
+nav a:hover #numberCircle{
+    border-color: white;
+}
+
+nav a:hover .darkimg{
+    display: none;
+}
+
+ nav a:hover .whiteimg{
+    display: inline;
+    border: 1px solid  white;
+    border-radius: 5px;
+}
+ 
+nav a:active{
+  color: #214271;
+}
+
+@media (max-width: 800px) {
+    nav .text{
+        display: none;
+    }
+    
+    nav
+    {
+        width: 110px;
+        border-bottom-right-radius: 20px;
+        border-top-right-radius: 20px;
+        transition-duration: 350ms;
+
+    }
+    nav a:hover {
+        padding-right: 0px;
+        
+    }
+    
+    
+}

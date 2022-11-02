@@ -1,0 +1,119 @@
+body {
+    background-color: rgb(29, 30, 31);;
+}
+
+*{
+    font-family:Verdana, Tahoma, Arial, Helvetica, sans-serif;
+    font-size: 14px;
+    text-decoration: none;
+}
+
+a {
+    color: white;
+}
+
+.menuCheck{
+    display: none;
+}
+
+#menu{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 300px;
+    border-collapse: collapse;
+    border-radius: 12px;
+    list-style: none;
+}
+
+.subMenu{
+    margin-top: -3px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 340px;
+    transition:all 550ms ease-in-out;
+    cursor: pointer;
+}
+
+.position {
+    width: 300px;
+    padding: 20px;
+    display: block;
+    position: relative;
+    background-color: rgb(83, 86, 88);
+    border-top: 1px solid black;
+    cursor: pointer;
+    z-index: 2;
+}
+
+.positionEnd {
+    width: 300px;
+    padding: 20px;
+    display: block;
+    position: relative;
+    background-color: rgb(83, 86, 88);
+    border-top: 1px solid black;
+    cursor: pointer;
+    z-index: 2;
+}
+
+
+.subMenu a{
+    background-color:  #4d8994;
+    height: 0;
+    font-size: 0;
+    width: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: height 400ms ease-in-out;   
+}
+
+.menuCheck:checked ~ .subMenu a{
+    height: 50px;
+    font-size: 14px;
+    transition: all 330ms ease-in-out;
+}
+
+.subMenu a:hover {
+    border-bottom: 1px solid #a6c6cc;
+    background: -moz-linear-gradient(top, #355d64 0%, #467c86 48%, #79afb9 52%, #9bc3ca 100%);
+    background: -webkit-linear-gradient(top, #355d64 0%, #467c86 48%, #79afb9 52%, #9bc3ca 100%);
+    background: linear-gradient(top, #355d64 0%, #467c86 48%, #79afb9 52%, #9bc3ca 100%);
+    transition: all 400ms;
+}
+
+.subMenu a:hover:before {
+    content: "";
+    position: absolute;
+    height: 0;
+    width: 280px;
+    opacity: 1;
+    border-top: 23px solid transparent;
+    border-bottom: 23px solid transparent;
+    border-left: 10px solid rgb(29, 30, 31);
+    border-right: 10px solid rgb(29, 30, 31);
+}
+
+.menuCheckClose{
+    display: none;
+}
+
+.close {
+    display: none;
+}
+
+
+.statusCheck:has(.menuCheck:checked)>.close {
+    display: block;
+    transition: all 400ms ease-in-out; 
+}
+
+.statusCheck:has(.menuCheck:checked)>.open {
+    display: none;
+    transition: all 400ms ease-in-out; 
+}
+
+

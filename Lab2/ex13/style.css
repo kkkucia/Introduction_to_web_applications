@@ -1,0 +1,341 @@
+*{
+    box-sizing: border-box;
+    color: rgb(245, 245, 245);
+    margin: 0;
+    font-size: 14px;
+    font-family: Arial, Helvetica, sans-serif;
+    scrollbar-width: thin;
+    scrollbar-color: #f5f5f5 #140330;
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: #140330;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #f5f5f5;
+    border-radius: 2px;
+    border: 1px dotted #140330;
+  }
+
+html{
+    background: url(assets/space.jpeg);
+    background-attachment: fixed;
+    text-decoration: none;
+}
+
+
+body{
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    overflow-x: hidden;
+}
+
+
+header{
+    background-color: rgba(85, 92, 129, 0.849);
+    height: 80px;
+    margin-bottom: 5px;
+    padding: 0 30px 5px 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    font-size: 100%;
+    align-items: center;
+}
+
+header > img{
+    margin-left: 20px;
+    width: auto;
+    height: 80%;
+}
+
+#side{
+    width: 100vw;
+    display: flex;
+    flex-direction: row;
+}
+
+#content{
+    display: flex;
+    flex-direction: column;
+    width: 60vw;
+}
+
+nav{
+    margin-bottom: 10px;
+    background-color: rgba(85, 92, 129, 0.466);
+    height: 70px;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    text-align: center;
+}
+
+#sidebar{
+    margin-right: 5px;
+    background-color: rgba(85, 92, 129, 0.466);
+    width: 20vw;
+    height: 600px;
+    position: sticky;
+    top: 5px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#sidebar > img:nth-of-type(1){
+    height: 20%;
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15px;
+    outline: 5px solid whitesmoke;
+    
+}
+
+#sidebar > p{
+    margin-top: 10px;
+    font-size: 20px;
+}
+
+#sidebar > p:nth-of-type(1){
+    font-size: 30px;
+    margin-top: 15px;
+}
+
+
+#sidebar > a{
+    margin: 5px;
+}
+
+#ads{
+    margin-left: 5px;
+    background-color: rgba(85, 92, 129, 0.466);
+    width: 20vw;
+    text-align: center;
+    font-size: 30px;
+    padding-top: 20%;
+}
+
+main{
+    width: 60vw;
+    height: 1610px;
+}
+
+
+article{
+    background-color: rgba(85, 92, 129, 0.466);
+    width: fit-content;
+    margin:0;
+    margin-bottom: 10px;
+    height: 260px;
+    -webkit-clip-path: polygon(15% 0, 100% 0%, 85% 100%, 0% 100%);
+    clip-path: polygon(15% 0, 100% 0%, 85% 100%, 0% 100%);
+}
+
+
+.articleContent{
+    margin: 0px 100px 20px 50px;
+    float: left;
+    margin-left: 0 auto;
+    padding: 3%;
+}
+.articleContent > p:nth-of-type(1){
+    font-size: larger;
+    text-align: center;
+}
+
+.articleContent img{
+    border-radius: 100%;
+    width: 160px;
+    height: 160px;
+    padding: 10px;
+    margin: 15px;
+    margin-left: 40px;
+    float: left;
+    shape-outside: circle(50%); 
+}
+
+.myForms{
+    background-image: url(assets/IMG-20220923-WA0003.jpg);
+    height: 260px;
+    -webkit-clip-path: polygon(15% 0, 100% 0%, 85% 100%, 0% 100%);
+    clip-path: polygon(15% 0, 100% 0%, 85% 100%, 0% 100%);
+    position: relative;
+}
+
+.myForms p{
+    font-size: 30px;
+    color: #400094;
+}
+
+.myForms input{
+    margin: 10px 0px;
+    color: black;
+}
+
+
+.myForms input[type=submit] {
+    background-color: #400094;
+    font-size: 19px;
+    border: 1px solid #ffffff;
+    cursor: pointer
+
+}
+.myForms .formText{
+    color: #400094;
+}
+
+.myForms input[type=submit]:hover {
+    color: #000000;
+    background-color: #ffffff;
+    margin-bottom: 30px;
+}
+
+.myForms .formsSide{
+    padding: 22px 0px;
+    background-color: rgba(245, 245, 245, 0.637);
+    -webkit-clip-path: polygon(0 0, 55% 0, 27% 100%, 0% 100%);
+    clip-path: polygon(0 0, 55% 0, 35% 100%, 0% 100%);
+    padding-left: 15%;
+}
+
+footer{
+    width: 100vw;
+    margin-top: 5px;
+    background-color:rgba(85, 92, 129, 0.466);
+    height: 80px;
+    bottom: 0;
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+#nav2, #ads2, #sidebar2{
+    display: none;
+}
+
+
+@media screen and (max-width:1100px){
+    *{
+        font-size: 12px
+    }
+    #nav1{
+        display: none;
+    }
+    #nav2{
+        display: block;
+        height: 60px;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+    }
+    header{
+        height: 60px;
+    }
+    #ads{
+        display: none;
+    }
+    #ads2{
+        display: block;
+        margin-top: 5px;
+        background-color:rgba(85, 92, 129, 0.466);
+        height: 80px;
+        bottom: 0;
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        margin-right: 5px;
+        width: 25vw;
+    }
+    #endside{
+        display: flex;
+        flex-direction: row;
+        width: 100vw;
+    }
+    main{
+        width: 78vw;
+    }
+    
+    #sidebar{
+        height: 520px;
+        
+    }
+
+    #sidebar > p{
+        margin-top: 10px;
+        font-size: 14px;
+    }
+
+    #sidebar > p:nth-of-type(1){
+        font-size: 20px;
+        margin-top: 15px;
+    }
+    .myForms input[type=submit] {
+        margin-bottom: 30px;
+    }
+
+}
+
+@media (max-width:845px){
+    main{
+        width: 100vw;
+    }
+    #ads2{
+        width: 100vw;
+    }
+    #endside{
+        display: flex;
+        flex-direction: column;
+        width: 100vw;
+    }
+    #sidebar{
+        display: none;
+    }
+
+    #sidebar2{
+        margin-top: 5px;
+        background-color: rgba(85, 92, 129, 0.466);
+        width: 100vw;
+        padding-top: 4px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: center;
+    }
+
+    .myForms p{
+        font-size: 20px;
+    }
+}
+
+@media (max-width: 560px){
+    main{
+        height: 2310px;
+    }
+    article{
+        height: 400px;
+        text-align: center;
+    }
+
+    
+    .myForms .formsSide{
+        text-align: center;
+        padding: 22px 15px;
+        background-color: rgba(245, 245, 245, 0.637);
+        -webkit-clip-path: polygon(15% 0, 100% 0%, 85% 100%, 0% 100%);
+        clip-path: polygon(15% 0, 100% 0%, 85% 100%, 0% 100%);
+        padding-left: 15%;
+    }
+}
+

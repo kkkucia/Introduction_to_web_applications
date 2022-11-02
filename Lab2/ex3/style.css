@@ -1,0 +1,97 @@
+html{
+    padding: 5px;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 30px;
+
+}
+
+.card{
+    border-radius: 5%;
+    width: 20vw;
+    box-shadow: -5px -5px 15px #182019
+}
+
+.card img{
+    width: 100%;
+    border-top-left-radius: 5%;
+    border-top-right-radius: 5%;
+}
+
+header{
+    font-size: large;
+    padding: 10px;
+}
+
+header > p{
+    color: red;
+}
+
+section{
+    padding: 0 10px 10px 10px;
+    text-align: justify;
+}
+
+hr {
+    width: 80%;
+    color: rgba(211, 211, 211, 0.705);
+}
+
+nav{
+    padding: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+button {
+    width: 40%;
+	box-shadow:inset 0px 1px 0px 0px #f7c3c0;
+	background:linear-gradient(to bottom, #f7c3c0 5%, #e82012 100%);
+	background-color:#f7c8c0;
+	border-radius:6px;
+	border:1px solid #d84126;
+	display:inline-block;
+	cursor:pointer;
+	color:#ffffff;
+	font-family:Arial;
+	font-size:15px;
+	font-weight:bold;
+	text-decoration:none;
+	text-shadow:0px 1px 0px #b23e35;
+}
+
+button:hover {
+	background:linear-gradient(to bottom, #e82012 5%, #f7c3c0 100%);
+	background-color:#e82012;
+}
+
+button:active {
+	position:relative;
+	top:1px;
+}
+
+
+@media (min-width: 750px) and (max-width:1200px) { 
+    .card {
+        width: 30vw;    
+    } 
+} 
+
+
+@media (min-width: 600px) and (max-width: 750px) {
+    .card{
+        width: 40vw;     
+    } 
+}  
+                
+@media (max-width: 600px) {
+    .card{         
+        width: 90vw;     
+    } 
+}
