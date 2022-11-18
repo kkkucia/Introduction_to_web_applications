@@ -1,9 +1,9 @@
 body {
-    background-color: rgb(29, 30, 31);;
+    background-color: rgb(29, 30, 31);
 }
 
-*{
-    font-family:Verdana, Tahoma, Arial, Helvetica, sans-serif;
+* {
+    font-family: Verdana, Tahoma, Arial, Helvetica, sans-serif;
     font-size: 14px;
     text-decoration: none;
 }
@@ -12,11 +12,11 @@ a {
     color: white;
 }
 
-.menuCheck{
+.menuCheck {
     display: none;
 }
 
-#menu{
+#menu {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -27,13 +27,13 @@ a {
     list-style: none;
 }
 
-.subMenu{
+.subMenu {
     margin-top: -3px;
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 340px;
-    transition:all 550ms ease-in-out;
+    transition: all 550ms ease-in-out;
     cursor: pointer;
 }
 
@@ -60,18 +60,18 @@ a {
 }
 
 
-.subMenu a{
-    background-color:  #4d8994;
+.subMenu a {
+    background-color: #4d8994;
     height: 0;
     font-size: 0;
     width: 300px;
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: height 400ms ease-in-out;   
+    transition: height 400ms ease-in-out;
 }
 
-.menuCheck:checked ~ .subMenu a{
+.menuCheck:checked~.subMenu a {
     height: 50px;
     font-size: 14px;
     transition: all 330ms ease-in-out;
@@ -97,7 +97,7 @@ a {
     border-right: 10px solid rgb(29, 30, 31);
 }
 
-.menuCheckClose{
+.menuCheckClose {
     display: none;
 }
 
@@ -105,15 +105,12 @@ a {
     display: none;
 }
 
-
 .statusCheck:has(.menuCheck:checked)>.close {
     display: block;
-    transition: all 400ms ease-in-out; 
+    transition: all 400ms ease-in-out;
 }
 
 .statusCheck:has(.menuCheck:checked)>.open {
     display: none;
-    transition: all 400ms ease-in-out; 
+    transition: all 400ms ease-in-out;
 }
-
-

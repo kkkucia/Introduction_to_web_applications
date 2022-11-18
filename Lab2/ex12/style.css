@@ -1,43 +1,40 @@
-@font-face{
-	font-family: Prototype;
-    src: url(assets/Prototype.ttf);
+@font-face {
+  font-family: Prototype;
+  src: url(assets/Prototype.ttf);
 }
 
-
-body{
-    margin: 0;
-    background: radial-gradient(circle, rgba(95, 95, 95, 0.877), 50%, rgba(255,255,255,0.9110994739692753) 100%);
-    background-size: cover;
-    background-repeat: repeat;
+body {
+  margin: 0;
+  background: radial-gradient(circle, rgba(95, 95, 95, 0.877), 50%, rgba(255, 255, 255, 0.9110994739692753) 100%);
+  background-size: cover;
+  background-repeat: repeat;
 }
 
-*{
-    font-family: Prototype;
+* {
+  font-family: Prototype;
 }
 
-
-
-body{
-    width: 100vw;
-    height: 100vh;
-    margin: 0;
-    overflow-x: hidden;
+body {
+  width: 100vw;
+  height: 100vh;
+  margin: 0;
+  overflow-x: hidden;
 }
 
-section{
-    margin-top: 30px;
-    margin-left: auto;
-    margin-right: auto;
-    height: 600px;
-    width: 800px;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    align-items: center;
-    position: relative;
+section {
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 600px;
+  width: 800px;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  align-items: center;
+  position: relative;
 }
 
-.shoe{
+.shoe {
   width: 500px;
   height: 300px;
   position: absolute;
@@ -45,431 +42,526 @@ section{
   margin: 0px 0px -100px -100px;
 }
 
-.shoe > img{
+.shoe>img {
   width: 100%;
   height: auto;
   transform: rotate(-18deg);
 }
 
-
-.side{
-    position: relative;
-    -webkit-box-shadow: 12px 22px 59px 5px rgba(0, 0, 0, 0.88);
-    -moz-box-shadow: 12px 22px 59px 5px rgba(0, 0, 0, 0.88);
-    box-shadow: 12px 22px 59px 5px rgba(0, 0, 0, 0.88);
-    }
-
-
-.leftSide{
-    background-image: linear-gradient(195deg,rgba(2, 65, 255, 1) 0%, rgba(32, 43, 69, 1)  100%);
-    margin-left: 8%;
-    width: 40%;
-    height: 90%;
-    text-align: center;
-    padding: 10px 15px 0px 15px;
-    position: relative;
-    z-index: -1;
+.side {
+  position: relative;
+  -webkit-box-shadow: 12px 22px 59px 5px rgba(0, 0, 0, 0.88);
+  -moz-box-shadow: 12px 22px 59px 5px rgba(0, 0, 0, 0.88);
+  box-shadow: 12px 22px 59px 5px rgba(0, 0, 0, 0.88);
 }
 
-.icons{
-    z-index: 1;
-    width: 100%;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+.leftSide {
+  background-image: linear-gradient(195deg, rgba(2, 65, 255, 1) 0%, rgba(32, 43, 69, 1) 100%);
+  margin-left: 8%;
+  width: 40%;
+  height: 90%;
+  text-align: center;
+  padding: 10px 15px 0px 15px;
+  position: relative;
+  z-index: -1;
 }
 
-
-.leftSide > p{
-    color: rgba(255, 255, 255, 0.199);
-    margin-top: 10px;
-    font-size: 150px;
-}
-
-.rightSide{
-    background-color: white;
-    z-index: 1;
-    width: 380px;
-    height: 600px;
-    padding: 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-}
-
-header{
-    margin: 15px 15px 0 10px;
+.icons {
+  z-index: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 
-header > p:nth-child(2){
-    font-size: 30px;
-    margin: 20px 15px ;
+.leftSide>p {
+  color: rgba(255, 255, 255, 0.199);
+  margin-top: 10px;
+  font-size: 150px;
 }
 
-header > div{
-    background-color: blue;
-    color: white;
-    width: 60px;
-    height: 30px;
-    text-align: center;
-    padding-top: 10px;
-    box-shadow: 12px 22px 59px 5px rgba(0, 0, 0, 0.562);
-    float: right;
-    margin-right: 20px;
+.rightSide {
+  background-color: white;
+  z-index: 1;
+  width: 380px;
+  height: 600px;
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
 }
 
-header > p{
-    margin: -10px 0px 4px 15px;
+header {
+  margin: 15px 15px 0 10px;
 }
 
-.description{
+header>p:nth-child(2) {
+  font-size: 30px;
+  margin: 20px 15px;
+}
+
+header>div {
+  background-color: blue;
+  color: white;
+  width: 60px;
+  height: 30px;
+  text-align: center;
+  padding-top: 10px;
+  box-shadow: 12px 22px 59px 5px rgba(0, 0, 0, 0.562);
+  float: right;
+  margin-right: 20px;
+}
+
+header>p {
+  margin: -10px 0px 4px 15px;
+}
+
+.description {
   margin: 0 5px 0 15px;
 }
 
-.color{
-    display: flex;
-    flex-direction: column;
-    margin: 0 15px 0 15px;
+.color {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15px 0 15px;
 }
-.colorBox{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    margin-bottom: 20px;
+
+.colorBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-bottom: 20px;
 }
 
 .container {
-    display: block;
-    position: relative;
-    padding-left: 35px;
-    margin-bottom: 12px;
-    cursor: pointer;
-    font-size: 22px;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-  
-  .container input {
-    position: absolute;
-    opacity: 0;
-    cursor: pointer;
-  }
-  
-  
-  .checkmark {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #eee;
-    border-radius: 50%;
-  }
-
-  .blue .checkmark{
-    background-color: blue;
-  }
-
-  .red .checkmark{
-    background-color: red;
-  }
-
-  .green .checkmark{
-    background-color: rgb(19, 196, 19);
-  }
-
-  .orange .checkmark{
-    background-color: orange;
-  }
-
-  .black .checkmark{
-    background-color: black;
-  }
-  
-  .blue:hover input ~ .checkmark {
-    background-color: rgb(0, 0, 102);
-  }
-
-  .red:hover input ~ .checkmark {
-    background-color: rgb(141, 0, 0);
-  }
-
-  .green:hover input ~ .checkmark {
-    background-color: rgb(17, 63, 17);
-  }
-
-  .orange:hover input ~ .checkmark {
-    background-color: rgb(134, 87, 0);
-  }
-
-  .black:hover input ~ .checkmark {
-    background-color: rgb(82, 82, 82);
-  }
- 
-  
-  .container input:checked ~ .checkmark {
-    background-color: rgb(255, 255, 255);
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
-  }
-  
-  .checkmark:after {
-    content: "";
-    position: absolute;
-    display: none;
-  }
-  
-  .container input:checked ~ .checkmark:after {
-    display: block;
-  }
-  
-  .container .checkmark:after {
-       top: 6px;
-      left: 6px;
-      width: 14px;
-      height: 14px;
-      border-radius: 50%;
-  }
-
-  .blue .checkmark:after{
-    background: blue;
-  }
-
-  .red .checkmark:after{
-    background: red;
-  }
-
-  .green .checkmark:after{
-    background: rgb(19, 196, 19);
-  }
-
-  .orange .checkmark:after{
-    background-color: orange;
-  }
-
-  .black .checkmark:after{
-    background: black;
-  }
-
-
-  hr{
-    width: 90%;
-    background-color: lightgray;
-    border-collapse: collapse;
-  }
-
-  .size{
-    display: flex;
-    flex-direction: column;
-    margin: 0 15px 0 15px;
-  }
-
-  .sizeBox{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-  }
-
-  .containerSize > input{
-    display: none;
-  }
-
-  .containerSize:has(input:checked){
-    background-color: blue;
-    color: white;
-  }
-
-  .sizeBox > input{
-    width: 10px;
-    height: 22px;
-    text-align: center;
-    border-radius: 3px;
-    background-color: lightgrey;
-  }
-
- .containerSize{
-    padding-top: 10px;
-    text-align: center;
-    width: 30px;
-    height: 30px;
-    background-color: rgb(180, 180, 180);
-    border-radius: 5px;
-    box-shadow: 12px 22px 59px 5px rgba(0, 0, 0, 0.562);
-    cursor: pointer;
- }
- 
- footer{
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: baseline;
- }
-
- @keyframes pulse {
-	0% {
-		transform: scale(0.8);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-	}
-
-	70% {
-		transform: scale(1);
-		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
-	}
-
-	100% {
-		transform: scale(0.8);
-		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
-	}
+  display: block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  font-size: 22px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
 
- .buy{
-    background-color: blue;
-    color: white;
-    padding: 18px;
-    display: flex;
-    flex-direction: row;
-    box-shadow: 12px 22px 59px 5px rgba(0, 0, 0, 0.562);
-    cursor: pointer;
-    border: 0;
- }
-
- .buy:hover{
-  
-  transform: scale(1);
-	animation: pulse 1s infinite;
- }
-
- .buy > img{
-    margin: 10px 0 10px 0;
- }
-
- .price{
-    display: flex;
-    flex-direction: row;
- }
-
- .price p:nth-of-type(1){
-    font-size: 26px;
- }
-
- .price p:nth-of-type(2){
-    font-size: 32px;
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
 }
 
 
-.colorBox:has(.red input:checked) ~ footer > .buy{
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+.blue .checkmark {
+  background-color: blue;
+}
+
+.red .checkmark {
   background-color: red;
 }
 
-.colorBox:has(.green input:checked) ~ footer > .buy{
+.green .checkmark {
   background-color: rgb(19, 196, 19);
 }
 
-.colorBox:has(.orange input:checked) ~ footer > .buy{
+.orange .checkmark {
+  background-color: orange;
+}
+
+.black .checkmark {
+  background-color: black;
+}
+
+.blue:hover input~.checkmark {
+  background-color: rgb(0, 0, 102);
+}
+
+.red:hover input~.checkmark {
+  background-color: rgb(141, 0, 0);
+}
+
+.green:hover input~.checkmark {
+  background-color: rgb(17, 63, 17);
+}
+
+.orange:hover input~.checkmark {
+  background-color: rgb(134, 87, 0);
+}
+
+.black:hover input~.checkmark {
+  background-color: rgb(82, 82, 82);
+}
+
+.container input:checked~.checkmark {
+  background-color: rgb(255, 255, 255);
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.container input:checked~.checkmark:after {
+  display: block;
+}
+
+.container .checkmark:after {
+  top: 6px;
+  left: 6px;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+}
+
+.blue .checkmark:after {
+  background: blue;
+}
+
+.red .checkmark:after {
+  background: red;
+}
+
+.green .checkmark:after {
+  background: rgb(19, 196, 19);
+}
+
+.orange .checkmark:after {
+  background-color: orange;
+}
+
+.black .checkmark:after {
+  background: black;
+}
+
+hr {
+  width: 90%;
+  background-color: lightgray;
+  border-collapse: collapse;
+}
+
+.size {
+  display: flex;
+  flex-direction: column;
+  margin: 0 15px 0 15px;
+}
+
+.sizeBox {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+.containerSize>input {
+  display: none;
+}
+
+.containerSize:has(input:checked) {
+  background-color: blue;
+  color: white;
+}
+
+.sizeBox>input {
+  width: 10px;
+  height: 22px;
+  text-align: center;
+  border-radius: 3px;
+  background-color: lightgrey;
+}
+
+.containerSize {
+  padding-top: 10px;
+  text-align: center;
+  width: 30px;
+  height: 30px;
+  background-color: rgb(180, 180, 180);
+  border-radius: 5px;
+  box-shadow: 12px 22px 59px 5px rgba(0, 0, 0, 0.562);
+  cursor: pointer;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: baseline;
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0.8);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+  }
+
+  70% {
+    transform: scale(1);
+    box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+  }
+
+  100% {
+    transform: scale(0.8);
+    box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+  }
+}
+
+.buy {
+  background-color: blue;
+  color: white;
+  padding: 18px;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 12px 22px 59px 5px rgba(0, 0, 0, 0.562);
+  cursor: pointer;
+  border: 0;
+}
+
+.buy:hover {
+
+  transform: scale(1);
+  animation: pulse 1s infinite;
+}
+
+.buy>img {
+  margin: 10px 0 10px 0;
+}
+
+.price {
+  display: flex;
+  flex-direction: row;
+}
+
+.price p:nth-of-type(1) {
+  font-size: 26px;
+}
+
+.price p:nth-of-type(2) {
+  font-size: 32px;
+}
+
+.colorBox:has(.blue > .checkmark:hover)~footer>.buy {
+  background-color: blue;
+}
+
+
+.colorBox:has(.red input:checked)~footer>.buy {
+  background-color: red;
+}
+
+.colorBox:has(.red > .checkmark:hover)~footer>.buy {
+  background-color: red;
+}
+
+.colorBox:has(.green input:checked)~footer>.buy {
+  background-color: rgb(19, 196, 19);
+}
+
+.colorBox:has(.green > .checkmark:hover)~footer>.buy {
+  background-color: rgb(19, 196, 19);
+}
+
+.colorBox:has(.orange input:checked)~footer>.buy {
   background-color: orange
 }
 
-.colorBox:has(.black input:checked) ~ footer > .buy{
-  background-color: black;
-}
-
-
-.rightSide:has( .colorBox .red input:checked) >  header > div{
-  background-color: red;
-}
-
-.rightSide:has( .colorBox .green input:checked) >  header > div{
-  background-color: rgb(19, 196, 19);
-}
-
-.rightSide:has( .colorBox .orange input:checked) >  header > div{
+.colorBox:has(.orange > .checkmark:hover)~footer>.buy {
   background-color: orange;
 }
 
-.rightSide:has( .colorBox .black input:checked) >  header > div{
+.colorBox:has(.black input:checked)~footer>.buy {
   background-color: black;
 }
 
-section:has(.rightSide .colorBox .red input:checked) >  .leftSide{
-  background-image: linear-gradient(195deg,red 0%, rgb(83, 0, 0) 100%);
+.colorBox:has(.black > .checkmark:hover)~footer>.buy {
+  background-color: black;
 }
 
-section:has(.rightSide .colorBox .green input:checked) >  .leftSide{
+.rightSide:has(.colorBox .blue > .checkmark:hover)>header>div {
+  background-color: blue;
+}
+
+.rightSide:has(.colorBox .red > .checkmark:hover)>header>div {
+  background-color: red;
+}
+
+.rightSide:has(.colorBox .red input:checked)>header>div {
+  background-color: red;
+}
+
+
+.rightSide:has(.colorBox .green input:checked)>header>div {
+  background-color: rgb(19, 196, 19);
+}
+
+.rightSide:has(.colorBox .green > .checkmark:hover)>header>div {
+  background-color: rgb(19, 196, 19);
+}
+
+.rightSide:has(.colorBox .orange input:checked)>header>div {
+  background-color: orange;
+}
+
+.rightSide:has(.colorBox .orange > .checkmark:hover)>header>div {
+  background-color: orange;
+}
+
+.rightSide:has(.colorBox .black input:checked)>header>div {
+  background-color: black;
+}
+
+.rightSide:has(.colorBox .black > .checkmark:hover)>header>div {
+  background-color: black;
+}
+
+section:has(.rightSide .colorBox .blue > .checkmark:hover)>.leftSide {
+  background-image: linear-gradient(195deg, rgba(2, 65, 255, 1) 0%, rgba(32, 43, 69, 1) 100%);
+}
+
+section:has(.rightSide .colorBox .red input:checked)>.leftSide {
+  background-image: linear-gradient(195deg, red 0%, rgb(83, 0, 0) 100%);
+}
+
+section:has(.rightSide .colorBox .red > .checkmark:hover)>.leftSide {
+  background-image: linear-gradient(195deg, red 0%, rgb(83, 0, 0) 100%);
+}
+
+section:has(.rightSide .colorBox .green input:checked)>.leftSide {
   background-image: linear-gradient(195deg, rgb(19, 196, 19) 0%, rgb(0, 51, 0)100%);
 }
 
-section:has(.rightSide .colorBox .orange input:checked) >  .leftSide{
+section:has(.rightSide .colorBox .green > .checkmark:hover)>.leftSide {
+  background-image: linear-gradient(195deg, rgb(19, 196, 19) 0%, rgb(0, 51, 0)100%);
+}
+
+section:has(.rightSide .colorBox .orange input:checked)>.leftSide {
   background-image: linear-gradient(195deg, orange 0%, rgb(82, 53, 0) 100%);
 }
 
-section:has(.rightSide .colorBox .black input:checked) >  .leftSide{
+section:has(.rightSide .colorBox .orange > .checkmark:hover)>.leftSide {
+  background-image: linear-gradient(195deg, orange 0%, rgb(82, 53, 0) 100%);
+}
+
+section:has(.rightSide .colorBox .black input:checked)>.leftSide {
   background-image: linear-gradient(195deg, rgb(85, 85, 85) 0%, black 100%);
 }
 
-section:has(.rightSide .colorBox .red input:checked) > .shoe > img {
+section:has(.rightSide .colorBox .black > .checkmark:hover)>.leftSide {
+  background-image: linear-gradient(195deg, rgb(85, 85, 85) 0%, black 100%);
+}
+
+section:has(.rightSide .colorBox .blue > .checkmark:hover)>.shoe>img {
+  filter: none;
+}
+
+section:has(.rightSide .colorBox .red input:checked)>.shoe>img {
   filter: hue-rotate(-235deg);
 }
 
-section:has(.rightSide .colorBox .green input:checked) > .shoe > img {
+section:has(.rightSide .colorBox .red > .checkmark:hover)>.shoe>img {
+  filter: hue-rotate(-235deg);
+}
+
+section:has(.rightSide .colorBox .green input:checked)>.shoe>img {
   filter: hue-rotate(247deg);
 }
 
-section:has(.rightSide .colorBox .orange input:checked) > .shoe > img {
+section:has(.rightSide .colorBox .green > .checkmark:hover)>.shoe>img {
+  filter: hue-rotate(247deg);
+}
+
+section:has(.rightSide .colorBox .orange input:checked)>.shoe>img {
   filter: hue-rotate(171deg);
 }
 
-section:has(.rightSide .colorBox .black input:checked) > .shoe > img {
+section:has(.rightSide .colorBox .orange > .checkmark:hover)>.shoe>img {
+  filter: hue-rotate(171deg);
+}
+
+section:has(.rightSide .colorBox .black input:checked)>.shoe>img {
   filter: grayscale(1);
 }
 
-.rightSide:has(.colorBox .red input:checked) > .sizeBox > .containerSize:has(input:checked){
+section:has(.rightSide .colorBox .black > .checkmark:hover)>.shoe>img {
+  filter: grayscale(1);
+}
+
+.rightSide:has(.colorBox .blue > .checkmark:hover)>.sizeBox>.containerSize:has(input:checked) {
+  background-color: blue;
+}
+
+.rightSide:has(.colorBox .red input:checked)>.sizeBox>.containerSize:has(input:checked) {
   background-color: red;
 }
 
-.rightSide:has(.colorBox .green input:checked) > .sizeBox > .containerSize:has(input:checked){
+.rightSide:has(.colorBox .red > .checkmark:hover)>.sizeBox>.containerSize:has(input:checked) {
+  background-color: red;
+}
+
+.rightSide:has(.colorBox .green input:checked)>.sizeBox>.containerSize:has(input:checked) {
   background-color: rgb(19, 196, 19);
 }
 
-.rightSide:has(.colorBox .orange input:checked) > .sizeBox > .containerSize:has(input:checked){
+.rightSide:has(.colorBox .green > .checkmark:hover)>.sizeBox>.containerSize:has(input:checked) {
+  background-color: rgb(19, 196, 19);
+}
+
+.rightSide:has(.colorBox .orange input:checked)>.sizeBox>.containerSize:has(input:checked) {
   background-color: orange;
 }
 
-.rightSide:has(.colorBox .black input:checked) > .sizeBox > .containerSize:has(input:checked){
+.rightSide:has(.colorBox .orange > .checkmark:hover)>.sizeBox>.containerSize:has(input:checked) {
+  background-color: orange;
+}
+
+.rightSide:has(.colorBox .black input:checked)>.sizeBox>.containerSize:has(input:checked) {
   background-color: black;
 }
 
+.rightSide:has(.colorBox .black > .checkmark:hover)>.sizeBox>.containerSize:has(input:checked) {
+  background-color: black;
+}
 
-@media  screen and (max-width: 830px) {
+@media screen and (max-width: 830px) {
 
-    body{
-      margin: 10px 15px;
-      overflow-y: scroll;
-    }
-
-    .side{
-      box-shadow: 0;
-      }
-  
-    section{
-      margin: 10px;
-      width: 90vw;
-      flex-direction: column;
-    }
-
-    .leftSide{
-      margin: 0;
-      width: 100%;
-      height: 70vw;
-    }
-
-    .leftSide > p{
-      font-size: 40vw;
-      margin-top: -30px;
+  body {
+    margin: 10px 15px;
+    overflow-y: scroll;
   }
 
-  .shoe{
+  .side {
+    box-shadow: 0;
+  }
+
+  section {
+    margin: 10px;
+    width: 90vw;
+    flex-direction: column;
+  }
+
+  .leftSide {
+    margin: 0;
+    width: 100%;
+    height: 70vw;
+  }
+
+  .leftSide>p {
+    font-size: 40vw;
+    margin-top: -30px;
+  }
+
+  .shoe {
     margin: 0;
     width: 100%;
     margin-left: 0 auto;
@@ -477,24 +569,23 @@ section:has(.rightSide .colorBox .black input:checked) > .shoe > img {
     margin-top: 55px;
   }
 
-  .shoe > img{
+  .shoe>img {
     width: 100%;
     margin-left: 0 auto;
     margin-right: 0 auto;
     transform: rotate(0deg);
   }
 
-  .rightSide{
+  .rightSide {
     margin: 0;
     width: 101%;
-}
+  }
 
-  header > p:nth-child(2){
+  header>p:nth-child(2) {
     font-size: 6vw;
   }
 
-  .icons{
+  .icons {
     height: 7vh;
   }
-  
 }

@@ -1,13 +1,13 @@
-body{
+body {
     margin: 0;
 }
 
-section{
+section {
     background-color: antiquewhite;
     height: 3000px;
-
 }
-#topPhoto{
+
+#topPhoto {
     height: 710px;
     z-index: 1;
     position: absolute;
@@ -16,36 +16,36 @@ section{
     justify-content: space-between;
 }
 
-#topPhoto > img:nth-of-type(1){
+#topPhoto>img:nth-of-type(1) {
     height: 250px;
     margin: 15px;
     border-radius: 20px;
 }
 
-#topPhoto > img:nth-of-type(2){
+#topPhoto>img:nth-of-type(2) {
     width: 20px;
     margin: 10px 0 50px 15px;
     border-radius: 20px;
 }
 
-#window{
+#window {
     z-index: -1;
     text-align: center;
 }
 
-#videoCall{
+#videoCall {
     background-color: rgb(139, 122, 90);
     height: 710px;
 }
 
-#videoCall > img{
+#videoCall>img {
     height: 100%;
     z-index: 0;
     text-align: center;
     align-items: center;
 }
 
-#icones >img{
+#icones>img {
     width: 25px;
     height: 25px;
     padding: 10px;
@@ -53,17 +53,17 @@ section{
     margin: 10px;
 }
 
-.whiteCircle{
+.whiteCircle {
     background-color: white;
     border: 1px solid black;
 }
 
-#redCircle{
+#redCircle {
     background-color: red;
     border: 1px solid black;
 }
 
-#icones{
+#icones {
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -72,22 +72,21 @@ section{
     margin-top: 590px;
 }
 
-@media screen and (max-width: 474px) { 
-    #videoCall > img{
+@media screen and (max-width: 474px) {
+    #videoCall>img {
         width: 100vw;
-        
+        overflow-x: scroll;
     }
 
-    #topPhoto > img:nth-of-type(1){
+    #topPhoto>img:nth-of-type(1) {
         position: absolute;
-        clip: rect(10px,130px,140px,30px);
+        clip: rect(10px, 130px, 140px, 30px);
         margin-left: -10px;
         transition-duration: 550ms;
     }
 
-    #topPhoto > img:nth-of-type(2){
+    #topPhoto>img:nth-of-type(2) {
         margin: 450px 0 50px 15px;
         position: absolute;
-    
     }
 }

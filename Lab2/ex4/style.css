@@ -3,7 +3,7 @@
     src: url(assets/Saunde.otf);
 }
 
-body{
+body {
     font-family: letters;
     background-image: url(assets/bg.jpg);
     background-repeat: no-repeat;
@@ -12,20 +12,20 @@ body{
     margin: 0;
 }
 
-.blure {     
+.blure {
     background: rgba(98, 180, 227, 0.5);
-    backdrop-filter: blur(1px);      
-    height: -webkit-fill-available;     
-    width: -webkit-fill-available;     
-    position: absolute;     
-    z-index: -10;   
+    backdrop-filter: blur(1px);
+    height: -webkit-fill-available;
+    width: -webkit-fill-available;
+    position: absolute;
+    z-index: -10;
 }
 
-.triangle{
+.triangle {
     content: "";
     position: absolute;
     height: 0;
-    width:0;
+    width: 0;
     border-bottom: 15px solid white;
     border-right: 15px solid transparent;
     border-left: 15px solid transparent;
@@ -34,7 +34,7 @@ body{
     display: none;
 }
 
-nav{
+nav {
     padding-top: 5px;
     align-items: center;
     font-size: 30px;
@@ -42,39 +42,40 @@ nav{
     flex-direction: row;
     justify-content: space-around;
     color: white;
-    background-color:  rgb(98, 180, 227);
+    background-color: rgb(98, 180, 227);
     height: 50px;
 }
 
-#navBar{
+#navBar {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
 }
-#navBar > div{
-    width: 150px;
 
+#navBar>div {
+    width: 150px;
 }
 
-.navSection, button{
+.navSection,
+button {
     text-align: center;
     display: inline-block;
     height: 50px;
     width: 160px;
 }
 
-.navSection:hover{
-   color: rgb(20, 55, 77);
+.navSection:hover {
+    color: rgb(20, 55, 77);
 }
 
-.navSection:hover .triangle{
+.navSection:hover .triangle {
     display: block;
- }
+}
 
 
 .dropDownSection a {
     color: rgb(98, 180, 227);
-    background-color:white;
+    background-color: white;
     text-decoration: none;
     text-align: center;
     display: block;
@@ -84,13 +85,13 @@ nav{
     flex-direction: row;
     flex-wrap: nowrap;
 }
-.point{
+
+.point {
     justify-content: flex-end;
     margin-left: 6px;
 }
 
-
-.dropDownSection a .point{
+.dropDownSection a .point {
     visibility: hidden;
 }
 
@@ -102,52 +103,53 @@ nav{
 .dropDownSection a:hover .point {
     visibility: visible;
 }
-.dropDownSection{
+
+.dropDownSection {
     display: none;
     background-color: rgb(98, 180, 227);
     margin-top: 2px;
 }
 
-.dropDown:hover .dropDownSection{
+.dropDown:hover .dropDownSection {
     display: block;
 }
 
-#login{
-	background-color: rgba(98, 180, 227, 0.5);
-	border-radius:28px;
-	border:1px solid #ffffff;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-size:20px;
-	padding:16px 31px;
-	text-decoration:none;
-}
-#login:hover {
-	background-color: rgb(20, 55, 77);
+#login {
+    background-color: rgba(98, 180, 227, 0.5);
+    border-radius: 28px;
+    border: 1px solid #ffffff;
+    display: inline-block;
+    cursor: pointer;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 16px 31px;
+    text-decoration: none;
 }
 
-#signup{
-	background-color:#ffffff;
-	border-radius:28px;
-	border:1px solid rgb(98, 180, 227);
-	display:inline-block;
-	cursor:pointer;
-	color: rgb(98, 180, 227);
-	font-size:20px;
-	padding:16px 31px;
-	text-decoration:none;
+#login:hover {
+    background-color: rgb(20, 55, 77);
+}
+
+#signup {
+    background-color: #ffffff;
+    border-radius: 28px;
+    border: 1px solid rgb(98, 180, 227);
+    display: inline-block;
+    cursor: pointer;
+    color: rgb(98, 180, 227);
+    font-size: 20px;
+    padding: 16px 31px;
+    text-decoration: none;
 }
 
 #signup:hover {
-	background-color:rgb(20, 55, 77);
-    border-color:#ffffff;
-    color:  #ffffff;
-
+    background-color: rgb(20, 55, 77);
+    border-color: #ffffff;
+    color: #ffffff;
 }
 
-@media (max-width:1200px){
-    nav{
+@media (max-width:1200px) {
+    nav {
         text-align: center;
         padding-left: 5px;
         flex-direction: column;
@@ -155,37 +157,40 @@ nav{
         width: 140px;
         height: 100%;
     }
-    nav > p {
-        display: none;
-    }
-    
-    .triangle{
+
+    nav>p {
         display: none;
     }
 
-    .navSection:hover .triangle{
+    .triangle {
         display: none;
-     }
+    }
 
-    #navBar{
+    .navSection:hover .triangle {
+        display: none;
+    }
+
+    #navBar {
         display: flex;
         flex-direction: column;
         justify-content: flex-start;
     }
-    #navBar > div{
+
+    #navBar>div {
         height: 50px;
-    
     }
-    
-    .navSection, button{
+
+    .navSection,
+    button {
         height: 50px;
         width: 100px;
     }
-    
-    .dropDownSection{
+
+    .dropDownSection {
         margin-top: -50px;
         margin-left: 145px;
     }
+
     .dropDownSection a {
         padding: 10px;
         display: flex;
@@ -194,22 +199,18 @@ nav{
         flex-wrap: nowrap;
     }
 
-    
-    .dropDownSection a .point{
+    .dropDownSection a .point {
         visibility: hidden;
     }
-    
-    
-    .dropDown:hover .dropDownSection{
+
+    .dropDown:hover .dropDownSection {
         display: flex;
         flex-direction: row;
         justify-content: flex-start;
     }
 
-    button{
+    button {
         height: 80px;
         margin-bottom: 10px;
     }
-
- 
 }
