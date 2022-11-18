@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./icon.png" type="image/x-icon">
+    <title>Squares</title>
+</head>
+
+<body>
+    <section>
+        <div id="squares">
+            <div id="outside" class="square">
+                <p>+1</p>
+                <div id="center" class=" square">
+                    <p>+2</p>
+                    <div id="inside" class=" square">
+                        <p>+5</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <strong>Komunikat:</strong>
+        <ul id="info"></ul>
+        <div id="buttonBox">
+            <button id="sPropagation" onclick="changePropagation()">Start sPropagation</button>
+            <button id="reset" onclick="reset()">Reset</button>
+            <button id="changeOrderEvents" onclick="changeOrder()">Change of order events</button><br><br>
+            <div id="score">0</div>
+        </div>
+    </section>
+
+</body>
+
+</html>

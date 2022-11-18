@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="./icons8-earth-globe-96.png" type="image/x-icon">
+    <script src="./script.js" defer></script>
+    <title>Earth</title>
+</head>
+
+<body>
+    <nav id="paginationBig">
+    </nav>
+    <nav id="nav1">
+        <div id="subName">
+            <button onclick='sortSubregions(true, 0)'>&#11165;</button>
+            <button onclick='sortSubregions(false, 0)'>&#11167;</button>
+            <p>Subregion name</p>
+            <input id="fsubRegion" name="fsubRegion" type="text" placeholder="Find subregion...">
+        </div>
+        <div id="subPopulation">
+            <button onclick='sortSubregions(true, 1)'>&#11165;</button>
+            <button onclick='sortSubregions(false, 1)'>&#11167;</button>
+            <p>Subregion population</p>
+            <input id="fsubPopulation" name="fsubPopulation" type="text" placeholder="Find population...">
+        </div>
+        <div id="subArea">
+            <button onclick='sortSubregions(true, 2)'>&#11165;</button>
+            <button onclick='sortSubregions(false, 2)'>&#11167;</button>
+            <p>Subregion area</p>
+            <input id="fsubArea" name="fsubArea" type="text" placeholder="Find area...">
+        </div>
+    </nav>
+    <section></section>
+</body>
+
+</html>

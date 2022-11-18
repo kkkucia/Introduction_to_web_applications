@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link rel="shortcut icon" href="assets/icons8-padlock-120.png" type="image/x-icon">
+  <script src="./script.js" defer></script>
+  <title>Change Password</title>
+</head>
+
+<body>
+  <section>
+    <div id="formBox">
+      <form id="form" action="">
+        <label for="new"><b> New password</b></label><br>
+        <input onkeyup="checkingPassword()" type="password" id="new" name="new"
+          pattern="(?=.*[0-9])(?=.*[.,!@#$%^&*])(?=.*[a-z])(?=.*[A-Z]).{8,}"
+          title="Must contain at least one digit, one special character, one capital letter and at least 8 or more characters"
+          required>
+        <input type="checkbox" id="check1" name="check1" onclick="showPasword('new')">
+        <label class="checking1" for="check1"></label>
+        <br>
+
+        <label for="password"> <b> Repeat new password</b></label><br>
+        </label><input type="password" id="password" name="password" required><input type="checkbox" id="check2"
+          name="check2" onclick="showPasword('password')"><label class="checking2" for="check2"></label>
+
+        <input type="submit" hidden />
+      </form>
+      <h1>Password requirements</h1>
+      <div id="info">
+        <p id="length" class="invalid">at least 8 characters</p>
+        <p id="specialCharacter" class="invalid">at least one special character</p>
+        <p id="capitalLetter" class="invalid">at least one capital letter</p>
+        <p id="digit" class="invalid">at least one digit</p>
+      </div>
+      <h1 id="accept">To accept press Enter!</h1>
+    </div>
+  </section>
+</body>
+
+</html>

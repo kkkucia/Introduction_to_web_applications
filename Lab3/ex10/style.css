@@ -1,0 +1,24 @@
+#board {
+    box-shadow: 20px 20px 46px 4px rgba(0, 0, 0, 1);
+    height: 350px;
+    width: 60vw;
+    transition: all 200ms ease-in-out;
+}
+
+#ball {
+    width: 50px;
+    height: 50px;
+    background: radial-gradient(circle, rgb(150, 0, 0) 0%, red 100%);
+    border-radius: 100%;
+    position: absolute;
+    left: 100px;
+    top: 100px
+}
+
+@media screen and (max-width: 450px) {
+    #board {
+        height: 94vh;
+        width: 94vw;
+        transition: all 200ms ease-in-out;
+    }
+}

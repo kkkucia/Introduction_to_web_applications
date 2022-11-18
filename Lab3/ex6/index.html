@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="./script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/phone.png" type="image/x-icon">
+    <title>Książka telefoniczna</title>
+</head>
+
+<body>
+
+    <header>
+        <form action="" onsubmit="return false">
+            <div>
+                <label for="name">IMIĘ I NAZWISKO</label><br>
+                <input type="text" id="name" name="name" required
+                    pattern="\p{Lu}{1}\p{Ll}+[ ]{1}\p{Lu}{1}\p{Ll}+([-]{1}\p{Lu}{1}\p{Ll}+)*"
+                    title="Pole musi zawierać imię i nazwisko rozpoczynające się od dużej litery. Dozwolone są nazwiska dwuczłonowe odzielone znakiem - . Dozwolone są litery występujące w dowolnym alfabecie."><br>
+            </div>
+            <div>
+                <label for="phone">TELEFON</label><br>
+                <input type="tel" id="phone" name="phone" required
+                    pattern="([ ]{0,}[\+]?([ ]{0,}\d[ ]{0,}){12})|(([ ]{0,}\d[ ]{0,}){9})"
+                    title="Pole musi zawierać numer telefonu w formacie 9 lub 12 cyfr. Pole może zaczynać się od znaku +."><br>
+            </div>
+            <div>
+                <input onclick="addContact()" id="submitButton" type="submit" value="Dodaj">
+            </div>
+        </form>
+    </header>
+    <div id="telContainer">
+    </div>
+</body>
+
+</html>

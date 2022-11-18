@@ -1,0 +1,149 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+    background-color: rgba(219, 219, 219, 0.973);
+}
+
+nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: rgba(0, 0, 0, 0.829);
+    color: white;
+    border-bottom: 2px solid rgba(255, 255, 255, 0.425);
+    width: 100%;
+}
+
+#paginationBig {
+    justify-content: flex-start;
+}
+
+#paginationBig>div {
+    background-color: rgba(255, 255, 255, 0.753);
+    color: black;
+    margin-left: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 10px;
+    font-size: 25px;
+    text-align: center;
+    padding: 1px 0px 1px 8px;
+    cursor: pointer;
+}
+
+#paginationBig>div:hover {
+    background-color: rgba(175, 175, 175, 0.521);
+}
+
+nav>div {
+    margin: 10px 0px;
+    font-size: 25px;
+    display: flex;
+    flex-direction: row;
+}
+
+nav>div>button {
+    margin: 0px 10px;
+    cursor: pointer;
+}
+
+nav>div>input {
+    margin-left: 10px;
+    background-color: white;
+}
+
+nav>div>button:hover {
+    background-color: rgba(175, 175, 175, 0.521);
+}
+
+.subregion {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0.514);
+    color: white;
+}
+
+.subregion:hover {
+    background-color: rgba(0, 0, 0, 0.719);
+}
+
+.subregion>p {
+    margin: 10px 0px;
+}
+
+.country {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 5px;
+    background-color: rgba(0, 0, 0, 0.075);
+}
+
+.country>p {
+    margin: 10px 0px;
+}
+
+.flag {
+    height: 20px;
+    position: absolute;
+    margin-top: 9px;
+    left: 40px;
+}
+
+#paginationSmall {
+    background-color: rgba(0, 0, 0, 0.322);
+    justify-content: flex-start;
+}
+
+#paginationSmall>div {
+    background-color: rgba(255, 255, 255, 0.753);
+    color: black;
+    margin-left: 10px;
+    width: 21px;
+    height: 22px;
+    border-radius: 6px;
+    font-size: 20px;
+    text-align: center;
+    padding: 0px 0px 1px 5px;
+    cursor: pointer;
+}
+
+#paginationSmall>div:hover {
+    background-color: rgba(70, 70, 70, 0.801);
+}
+
+#nav2 {
+    background-color: rgba(0, 0, 0, 0.322);
+    font-size: 15px;
+}
+
+#nav2>div {
+    font-size: 15px;
+}
+
+#sectionToHide {
+    display: none;
+}
+
+.paginationON {
+    display: block;
+}
+
+.paginationOFF {
+    display: none;
+}
+
+.paginationSmallON {
+    display: flex;
+}
+
+.paginationSmallOFF {
+    display: none;
+}

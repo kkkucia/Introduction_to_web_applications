@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="shortcut icon" href="assets/iconZombie.png" type="image/x-icon">
+    <script src="./script.js" defer></script>
+    <title>Zombie Farm</title>
+</head>
+
+<body>
+
+    <section>
+        <header id="farmName">ZOMBIE FARM </header>
+
+        <div id="endBox">
+            <p>GAME OVER !</p>
+            <input id="playButton" type="submit" value="Try again ">
+            </form>
+        </div>
+
+        <div id="formBox">
+            <form id="form" action="#" method="dialog" onsubmit="playGame()">
+                <label for="lname">Nickname:</label><br>
+                <input type="text" id="nickname" name="nickname" placeholder="ZombiePamper..." required>
+                <input id="acceptButton" type="submit" value="Accept">
+            </form>
+        </div>
+        <div>
+            SCORE :
+            <p id="score">0</p>
+            <p id="hp"></p>
+        </div>
+        <div id="board"></div>
+        <div id="cursorGun">
+            <div id="dot"></div>
+        </div>
+    </section>
+
+</body>
+
+</html>
