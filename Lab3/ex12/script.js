@@ -2,6 +2,7 @@ var board = document.getElementById("board");
 var score = 0;
 var hp;
 let lives = '';
+let nick = '';
 
 //ZOMBIE
 generateZombie = () => {
@@ -47,15 +48,15 @@ moveZombie = (zombie, speedInterval) => {
     function frameStep() {
         if (position < - 250) {
             zombie.remove()
-            changeHp()
-            clearInterval(walking)
+            clearInterval(walking);
+            changeHp(walking);
+            
         } else {
             position -= 15;
             step -= 200;
             if (step == 200) step = 2200;
             zombie.style.backgroundPosition = `${step}px`;
             zombie.style.left = position + 'px';
-
             zombie.onclick = () => {
                 zombie.remove()
                 clearInterval(walking)
@@ -80,13 +81,13 @@ changeScore = (isDead) => {
     scoreBoard.innerText = `${score}`;
 }
 
-changeHp = () => {
+changeHp = (walking) => {
     healthPoints = document.getElementById('hp');
     hp += 1;
     lives += '2 '
     healthPoints.innerText = lives;
     if (hp == 3) {
-        endGame()
+        endGame(walking);
     }
 }
 
@@ -96,6 +97,48 @@ moveCursor = (event) => {
     cursorGun.style.top = event.pageY - 134 + "px";
     cursorGun.style.left = event.pageX - 56 + "px";
 }
+
+//highScoreBoard operation
+async function giveDataToScoreboard(url = '', data = {}) {
+    const response = await fetch(url, {
+      method: 'PUT', 
+      mode: 'cors', 
+      cache: 'no-cache', 
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      body: JSON.stringify(data)
+    });
+    return response.json();
+}
+
+async function updateScore(){
+    var data = await fetch("https://jsonblob.com/api/1044373523048710144");
+    var data = await data.json();
+    var today = new Date();
+    var dd = String(today.getDate()).padStart(2, '0');
+    var mm = String(today.getMonth() + 1).padStart(2, '0');
+    var yyyy = today.getFullYear();
+    today = dd + '/' + mm + '/' + yyyy;
+    data.push({"name": nick,"score":score, "date":today});
+    data.sort((a, b) => b.score - a.score);
+    data = data.slice(0, Math.min(3, data.length))
+
+    await giveDataToScoreboard("https://jsonblob.com/api/1044373523048710144", data);
+}
+
+async function getBlobData(){
+    var data = await fetch("https://jsonblob.com/api/1044373523048710144");
+    var data = await data.json();
+    let i = 1;
+    let p = ""
+    for (const player of data) {
+        p += `<p>${i}. ${player.name} date: ${player.date} points: ${player.score}</p>`
+        i++;
+    }
+    document.getElementById("scores").innerHTML = p;
+}
+
 
 //START and END GAME
 startGame = () => {
@@ -110,20 +153,23 @@ startGame = () => {
     }, 2000);
 }
 
-endGame = () => {
+endGame = async(walking) => {
+    await updateScore()
+    clearInterval(walking)
     document.body.style.cursor = "auto";
     alert("GAME OVER!");
     location.reload();
-
+    getBlobData();
 }
 
 playGame = () => {
     document.body.style.cursor = "auto";
-    let nick = document.forms["form"]["nickname"].value;
-
+    nick = document.forms["form"]["nickname"].value;
     header = document.getElementById('farmName');
     header.innerText = nick.toUpperCase() + '\'S ZOMBIE FARM';
     document.getElementById('formBox').style.display = 'none';
 
     startGame()
 }
+
+getBlobData()
