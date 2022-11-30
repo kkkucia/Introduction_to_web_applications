@@ -10,6 +10,7 @@ import { CurrencyChangeComponent } from './currency-change/currency-change.compo
 import { CardAddComponent } from './card-add/card-add.component';
 import { TravelRatingComponent } from './travel-rating/travel-rating.component';
 import { BusketComponent } from './busket/busket.component';
+import { CurrencyPipe } from './shared/currency.pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { BusketComponent } from './busket/busket.component';
     CurrencyChangeComponent,
     CardAddComponent,
     TravelRatingComponent,
-    BusketComponent
+    BusketComponent,
+    CurrencyPipe
   ],
   imports: [
     BrowserModule,

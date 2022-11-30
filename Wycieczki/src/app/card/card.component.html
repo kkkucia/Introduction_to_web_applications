@@ -4,7 +4,7 @@
     <img src="{{travel.image}}" alt="">
     <p><strong>{{travel.country | uppercase}}</strong></p>
     <p>{{travel.startDate}} - {{travel.endDate}}</p>
-    <p><strong> {{currPrice}}</strong></p>
+    <p><strong> {{travel.price | currency: currency }}</strong></p>
     <hr>
     <app-travel-rating [travelRates]="travelRates" [travelName]="travel.name"></app-travel-rating>
     <hr>

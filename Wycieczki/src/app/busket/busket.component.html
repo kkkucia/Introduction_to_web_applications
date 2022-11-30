@@ -1,6 +1,6 @@
 <button (click)="showAndHideBusket()"><img src="../../assets/icons8-shopping-basket-64.png" width="40px" alt=""></button>
 <div *ngIf="busketOn" id="busket">
-    <h2>Kwota do zapłacenia: {{currAllCost}} {{currencySign}}</h2>
+    <h2>Kwota do zapłacenia: {{ allCost | currency: currency }}</h2>
     <hr>
     <div *ngFor="let travel of chosenTravels  | keyvalue">
         <div *ngIf="travel.value != 0">{{travel.value}} x {{travel.key}}</div>

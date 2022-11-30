@@ -1,12 +1,12 @@
 <header>
-    <app-busket [travelCounter]="counter" [currency]="currency" [euro]="euro" [dolar]="dolar" [chosenTravels]="chosenTravels" [allCost]="allCost"></app-busket>
+    <app-busket [travelCounter]="counter" [currency]="currency" [chosenTravels]="chosenTravels" [allCost]="allCost"></app-busket>
     <div id="reservedTravels" [ngStyle]="{'border-color' : getBorderColor()}">Aktualnie zarezerwowanych wycieczek:
         {{counter}}</div>
     <app-currency-change (currencyChanger)="changeCurency($event)"></app-currency-change>
 </header>
 <div id="cardContainer">
     <app-card *ngFor='let travel of data, index as i' [idx]="i" [travel]="travel" [places]="travel.places"
-        [highPrice]="highPrice" [lowPrice]="lowPrice" [currency]="currency" [chosenTravels]="chosenTravels" [euro]="euro" [dolar]="dolar" (changeAllCost) = "changeAllCost($event)"
+        [highPrice]="highPrice" [lowPrice]="lowPrice" [currency]="currency" [chosenTravels]="chosenTravels" (changeAllCost) = "changeAllCost($event)"
         (emitTravelChanges)="changeNumberTravels($event)" (clickRemove)="removeCard($event)"
         [travelRates]="travelRates">
     </app-card>

@@ -21,12 +21,9 @@ export class CardComponent implements OnChanges{
   @Output() clickRemove: EventEmitter<number> = new EventEmitter<number>();
   @Output() changeAllCost: EventEmitter<number> = new EventEmitter<number>();
   @Input() travelRates: Map<string, [number, number]>;
-  @Input() euro: number;
-  @Input() dolar: number;
   ifSoldOut: boolean;
   ifMaxPlaces: boolean;
   lastPlaces: boolean;
-  currPrice: string;
 
   constructor(private app: CardListComponent) {
 
@@ -36,7 +33,6 @@ export class CardComponent implements OnChanges{
     this.ifSoldOut = (this.places == 0);
     this.ifMaxPlaces = (this.places == this.travel.places);
     this.lastPlaces = (this.places <= 3);
-    this.getPriceCorectCurency();
   }
 
   clickedChangePlaces(x: number): void {
@@ -73,26 +69,5 @@ export class CardComponent implements OnChanges{
     this.clickRemove.emit(this.idx)
   }
 
-  getPriceCorectCurency() {
-    let currPrice: number;
-    let newCurrency: string;
-    switch (this.currency) {
-      case 1: {
-        currPrice = Math.round(this.travel.price * this.euro * 100) / 100;
-        newCurrency = "€";
-        break;
-      }
-      case 2: {
-        currPrice = Math.round(this.travel.price * this.dolar * 100) / 100;
-        newCurrency = "$";
-        break;
-      } default: {
-        currPrice = Math.round(this.travel.price * 100) / 100;
-        newCurrency = "PLN";
-        break;
-      }
-    }
-    this.currPrice = currPrice + ' ' + newCurrency;
-  }
 
 }

@@ -20,8 +20,6 @@ export class CardListComponent implements OnInit {
   travelRates: Map<string, [number, number]> = new Map<string, [number, number]>();
   chosenTravels: Map<string,  number> = new Map<string, number>();
   allCost: number = 0;
-  euro: number = 0.18;
-  dolar: number = 0.23;
 
   constructor(private app: AppComponent) {
 
@@ -33,6 +31,8 @@ export class CardListComponent implements OnInit {
 
   changeNumberTravels(x: number): void {
     this.counter += x;
+
+    console.log(this.data);
   }
 
   changeAllCost(cost: number){
