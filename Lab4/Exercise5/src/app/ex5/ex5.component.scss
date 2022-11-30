@@ -1,0 +1,25 @@
+#body {
+    text-align: center;
+}
+
+.box {
+    width: 200px;
+    padding: 10px;
+    background-color: rgba(0, 0, 255, 0.339);
+    margin: 0 auto;
+}
+
+#carColor {
+    height: 20px;
+    width: 60px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+#chooseColor {
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    margin: 0 auto;
+    margin-bottom: 3px;
+}

@@ -1,0 +1,8 @@
+
+<div>{{moreInfo}}</div>
+<div >
+    <h2><strong>Choose a topic!</strong></h2>
+    <div id="container">
+        <app-card *ngFor = 'let topic of data; index as i' [title]="topic.title" [text]="topic.text" [id]="i"></app-card>
+    </div>
+</div>

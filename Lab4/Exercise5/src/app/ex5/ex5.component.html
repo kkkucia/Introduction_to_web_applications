@@ -1,0 +1,41 @@
+<div id="body">
+    <div class="box">
+        <h3>Marka samochodu:</h3>
+        <select name="brand" [(ngModel)]="chosenBrand" (ngModelChange)="brandSelected()">
+            <ng-container *ngIf="showBrands">
+                <option></option>
+                <option *ngFor="let brand of brands">
+                    {{ brand }}
+                </option>
+            </ng-container>
+        </select>
+    </div>
+
+    <div class="box" [hidden]="!chosenBrand">
+        <h3>Model samochodu:</h3>
+        <select name="model" [(ngModel)]="chosenModel" (ngModelChange)="modelSelected()">
+            <ng-container *ngIf="showModels">
+                <option></option>
+                <option *ngFor="let model of models">
+                    {{ model }}
+                </option>
+            </ng-container>
+        </select>
+    </div>
+
+    <div class="box" [hidden]="!chosenModel">
+        <h3>Kolor samochodu:</h3>
+            <ng-container *ngIf="showColors">
+                <div id="chooseColor" *ngFor="let color of colors" [ngStyle]="{'background-color': color}"  (click) = "colorSelected(color)"></div>
+            </ng-container>
+    </div>
+
+    <div class="box">
+        <ng-container *ngIf="showMessage">
+            <p><strong> Twój samochód to:</strong></p>
+            <p>{{chosenBrand + " " + chosenModel}}</p>
+            <p><strong> Kolor Twojego samochodu:</strong></p>
+            <div id="carColor" [ngStyle]="{'background-color': chosenColor}"></div>
+        </ng-container>
+    </div>
+</div>
