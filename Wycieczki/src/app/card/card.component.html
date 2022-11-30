@@ -1,0 +1,18 @@
+<button id="delete" (click)="clickedRemove()">Usuń</button>
+<div class="card" id="card{{idx}}" [ngStyle]="{'box-shadow' : getShadowColor()}">
+    <h3>{{travel.name | uppercase}}</h3>
+    <img src="{{travel.image}}" alt="">
+    <p><strong>{{travel.country | uppercase}}</strong></p>
+    <p>{{travel.startDate}} - {{travel.endDate}}</p>
+    <p><strong> {{currPrice}}</strong></p>
+    <hr>
+    <app-travel-rating [travelRates]="travelRates" [travelName]="travel.name"></app-travel-rating>
+    <hr>
+    <p>{{travel.description}}</p>
+    <p>Ilość miejsc: {{places}}</p>
+    <app-reserve-place (changePlaces)="clickedChangePlaces($event)" [ifSoldOut]="ifSoldOut" [ifMaxPlaces]="ifMaxPlaces">
+    </app-reserve-place>
+    <p id="soldOut" *ngIf="ifSoldOut">BRAK MIEJSC!</p>
+    <p id="maxPlaces" *ngIf="!ifSoldOut" [ngStyle]="{'color': lastPlaces? 'orange': 'rgb(0, 175, 175)'}">WOLNE MIEJSCA!
+    </p>
+</div>

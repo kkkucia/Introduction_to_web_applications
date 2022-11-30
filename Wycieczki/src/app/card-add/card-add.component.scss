@@ -1,0 +1,32 @@
+:host {
+    form {
+        color: white;
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        width: fit-content;
+        padding: 20px;
+        border: 2px solid white;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+
+    form>input {
+        margin-bottom: 10px;
+    }
+
+    form>p {
+        color: rgb(0, 175, 175);
+        margin-bottom: -10px;
+    }
+
+    form>button {
+        margin-top: 10px;
+        background-color: rgba(255, 255, 255, 0.712);
+        cursor: pointer;
+    }
+
+    form>button:hover {
+        background-color: rgb(255, 255, 255);
+    }
+}

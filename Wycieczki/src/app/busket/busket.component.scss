@@ -1,0 +1,49 @@
+:host {
+    button {
+        background-color: rgba(255, 255, 255, 0.705);
+        border: 1px solid rgb(255, 255, 255);
+        width: fit-content;
+        align-items: center;
+        transform: translateY(12px);
+        cursor: pointer;
+    }
+
+    button:hover {
+
+        background-color: rgb(255, 255, 255);
+    }
+
+    img {
+        scale: 0.8;
+    }
+
+    #busket {
+        margin-left: 8vw;
+        margin-top: 20px;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.74);
+        border: 2px solid black;
+        height: 85vh;
+        width: 80vw;
+        content: "jaja";
+        z-index: 1;
+        color: white;
+        text-align: center;
+    }
+
+    div>h2 {
+        margin-bottom: 10px;
+    }
+
+    div>div {
+        margin-top: 10px;
+    }
+
+    div>hr {
+        margin: 10px;
+
+
+    }
+
+
+}

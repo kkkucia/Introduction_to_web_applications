@@ -1,0 +1,12 @@
+:host {
+    button {
+        margin: 5px;
+        cursor: pointer;
+    }
+
+    button:hover {
+        border-radius: 3px;
+        background-color: white;
+        font-weight: bold;
+    }
+}

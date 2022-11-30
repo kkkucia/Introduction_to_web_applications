@@ -1,0 +1,63 @@
+:host {
+    .card {
+        background: rgb(179, 179, 179);
+        background: linear-gradient(90deg, rgb(192, 192, 192) 9%, rgb(255, 255, 255) 50%, rgb(206, 206, 206) 91%);
+        box-shadow: 8px 8px 24px 0px rgba(255, 255, 255, 0.781);
+        border: 1px solid black;
+        margin: 0px 20px;
+        padding: 2px;
+        height: 510px;
+        width: 240px;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+    }
+
+    .card>hr {
+        width: 80%;
+        margin-top: 0;
+    }
+
+    .card>p,
+    h3 {
+        font-family: Arial, Helvetica, sans-serif;
+        margin: 4px;
+    }
+
+    .card>h3 {
+        margin: 20px 0px;
+    }
+
+    .card>img {
+        clip-path: circle(40.7% at 50% 50%);
+        scale: 0.6;
+        margin: -80px 0px -60px 0px;
+    }
+
+    .card>#soldOut {
+        color: red;
+        font-size: larger;
+        font-weight: bold;
+    }
+
+    .card>#maxPlaces {
+        font-weight: bold;
+    }
+
+    .card:has(#soldOut)>img {
+        filter: grayscale(1);
+    }
+
+    #delete {
+        background-color: rgba(255, 255, 255, 0.63);
+        color: black;
+        transform: translateY(33px) translateX(-14px) rotate(-90deg);
+        cursor: pointer;
+    }
+
+    #delete:hover {
+        background-color: white;
+    }
+
+}
