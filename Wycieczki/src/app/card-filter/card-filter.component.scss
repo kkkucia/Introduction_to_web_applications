@@ -1,0 +1,68 @@
+:host {
+    #box {
+        border: 1px solid white;
+        padding: 0px 5px;
+        color: white;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around
+    }
+
+    .miniBox>p {
+        text-align: center;
+        margin: 10px;
+    }
+
+    .inputs {
+        display: flex;
+        flex-direction: row;
+    }
+
+    .inputs>div {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+        margin: 0 5px;
+    }
+
+    .inputs>div>input {
+        opacity: 0;
+    }
+
+    .inputs>div>label {
+        background-color: rgb(88, 88, 88);
+        color: black;
+        font-size: 18px;
+        font-weight: bold;
+        cursor: pointer;
+        border-radius: 2px;
+        transform: translateY(-12px);
+        border: 1px solid white;
+    }
+
+    .inputs>div>label:hover {
+        background-color: transparent;
+        color: white;
+
+    }
+
+    .inputs>div:has(input:checked)>label {
+        background-color: white;
+    }
+
+    .inputs>div:has(input:checked)>label:hover {
+        background-color: transparent;
+        color: white;
+    }
+
+    #cityInputs {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+
+    #cityInputs>div>label {
+        font-size: 15px;
+        padding: 2px;
+    }
+
+}

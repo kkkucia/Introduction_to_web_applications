@@ -7,4 +7,7 @@ export interface ITravel {
     places: number;
     description: string;
     image: string;
+    rating: number;
+    ratingCounter: number;
+    ratingSum: number;
 }

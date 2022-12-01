@@ -48,7 +48,10 @@ export class CardAddComponent implements OnInit {
       price: data.get("price").value,
       places: data.get("places").value,
       description: data.get("description").value,
-      image: data.get("image").value
+      image: data.get("image").value,
+      rating: 0,
+      ratingCounter: 0,
+      ratingSum: 0
       }
 
     if(newTravel.startDate > newTravel.endDate){
@@ -56,8 +59,8 @@ export class CardAddComponent implements OnInit {
         return;
       }
 
-
     this.formSubmitEvent.emit(newTravel);
+    console.log(newTravel)
     this.correct = true;
     data.reset();
 

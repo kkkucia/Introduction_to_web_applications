@@ -11,6 +11,9 @@ import { CardAddComponent } from './card-add/card-add.component';
 import { TravelRatingComponent } from './travel-rating/travel-rating.component';
 import { BusketComponent } from './busket/busket.component';
 import { CurrencyPipe } from './shared/currency.pipe';
+import { CardFilterComponent } from './card-filter/card-filter.component';
+import { FilterPipe } from './shared/filter.pipe';
+import { FilterRangesService } from './services/filter-ranges.service';
 
 @NgModule({
   declarations: [
@@ -22,14 +25,16 @@ import { CurrencyPipe } from './shared/currency.pipe';
     CardAddComponent,
     TravelRatingComponent,
     BusketComponent,
-    CurrencyPipe
+    CurrencyPipe,
+    CardFilterComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [FilterRangesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

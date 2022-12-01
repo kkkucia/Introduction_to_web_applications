@@ -2,7 +2,7 @@
 <div *ngIf="busketOn" id="busket">
     <h2>Kwota do zapłacenia: {{ allCost | currency: currency }}</h2>
     <hr>
-    <div *ngFor="let travel of chosenTravels  | keyvalue">
+    <div *ngFor="let travel of chosenTravels | keyvalue">
         <div *ngIf="travel.value != 0">{{travel.value}} x {{travel.key}}</div>
     </div>
 

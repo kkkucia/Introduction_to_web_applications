@@ -20,7 +20,6 @@ export class CardComponent implements OnChanges{
   @Output() emitTravelChanges: EventEmitter<number> = new EventEmitter<number>();
   @Output() clickRemove: EventEmitter<number> = new EventEmitter<number>();
   @Output() changeAllCost: EventEmitter<number> = new EventEmitter<number>();
-  @Input() travelRates: Map<string, [number, number]>;
   ifSoldOut: boolean;
   ifMaxPlaces: boolean;
   lastPlaces: boolean;
