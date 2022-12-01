@@ -2,7 +2,7 @@ import { Component, Input, OnInit } from '@angular/core';
 import { ITravel } from '../interfaces/travel';
 import { ITravelRanges } from '../interfaces/travelRanges';
 import { FilterRangesService } from '../services/filter-ranges.service';
-
+import { HandleTravelsService } from '../services/handle-travels.service';
 
 @Component({
   selector: 'app-card-list',
@@ -26,7 +26,7 @@ export class CardListComponent implements OnInit {
   chosenTravels: Map<string, number> = new Map<string, number>();
   allCost: number = 0;
 
-  constructor(private filterService: FilterRangesService) {
+  constructor(private filterService: FilterRangesService, private handligTravelService: HandleTravelsService) {
   }
 
   ngOnInit(): void {
@@ -44,10 +44,13 @@ export class CardListComponent implements OnInit {
         ratingCounter: 0,
         ratingSum: 0
       })
+      
       if (!this.countryList.has(travel.country)) {
         this.countryList.set(travel.country, true);
       }
     }
+    this.handligTravelService.giveTravels(this.travels);
+
     this.checkPrices(this.travels);
     this.travelsAll = this.travels.slice();
 
@@ -62,7 +65,11 @@ export class CardListComponent implements OnInit {
 
     this.filterService.getRanges().subscribe(ranges => {
       this.travelRanges = ranges;
-      this.travelsAll = this.travels.slice()
+      this.travelsAll = this.travels.slice();
+    });
+
+    this.handligTravelService.getTravels().subscribe(travels => {
+      this.travelsAll = travels;
     });
   }
 
@@ -88,25 +95,21 @@ export class CardListComponent implements OnInit {
     }
   }
 
-  removeCard(idx: number): void {
-    this.addtravelsAll = this.travelsAll.slice()
-    this.addtravelsAll.splice(idx, 1);
-    this.travelsAll = this.addtravelsAll.slice()
-    this.checkPrices(this.travelsAll);
-  }
-
   changeCurency(curr: number) {
     this.currency = curr;
   }
 
+  removeCard(idx: number): void {
+    this.handligTravelService.removeCardFromTravels(idx);
+    this.checkPrices(this.travelsAll);
+  }
+
   formsEvent(travel: ITravel) {
-    this.addtravelsAll = this.travelsAll.slice()
-    this.addtravelsAll.push(travel);
-    this.travelsAll = this.addtravelsAll.slice()
+    this.handligTravelService.addCardToTravels(travel);
+    this.filterService.setravelRanges(this.travelsAll);
     this.checkPrices(this.travelsAll);
     if (!this.countryList.has(travel.country)) {
       this.countryList.set(travel.country, true);
     }
-    this.filterService.setravelRanges(this.travelsAll);
   }
 }

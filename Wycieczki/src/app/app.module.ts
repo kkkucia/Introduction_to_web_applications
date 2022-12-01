@@ -14,6 +14,7 @@ import { CurrencyPipe } from './shared/currency.pipe';
 import { CardFilterComponent } from './card-filter/card-filter.component';
 import { FilterPipe } from './shared/filter.pipe';
 import { FilterRangesService } from './services/filter-ranges.service';
+import { HandleTravelsService } from './services/handle-travels.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { FilterRangesService } from './services/filter-ranges.service';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [FilterRangesService],
+  providers: [FilterRangesService, HandleTravelsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

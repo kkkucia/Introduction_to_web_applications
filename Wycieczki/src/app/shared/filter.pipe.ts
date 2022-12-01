@@ -2,6 +2,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 import { ITravel } from '../interfaces/travel';
 import { ITravelRanges } from '../interfaces/travelRanges';
 
+
 @Pipe({
   name: 'filter',
   pure: false
@@ -19,7 +20,7 @@ export class FilterPipe implements PipeTransform {
 
     let filterMinPrice = filterEndData.filter((t) => t.price >= travelRanges.minPrice);
     this.filteredTravels = filterMinPrice.filter((t) => t.price <= travelRanges.maxPrice);
-
+    
     return this.filteredTravels;
   }
 
