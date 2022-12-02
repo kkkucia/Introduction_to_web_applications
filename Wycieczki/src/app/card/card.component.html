@@ -1,5 +1,5 @@
 <button id="delete" (click)="clickedRemove()">Usuń</button>
-<div class="card" id="card{{idx}}" [ngStyle]="{'box-shadow' : getShadowColor()}">
+<div class="card" [ngStyle]="{'box-shadow' : getShadowColor()}">
     <h3>{{travel.name | uppercase}}</h3>
     <img src="{{travel.image}}" alt="">
     <p><strong>{{travel.country | uppercase}}</strong></p>

@@ -99,8 +99,13 @@ export class CardListComponent implements OnInit {
     this.currency = curr;
   }
 
-  removeCard(idx: number): void {
-    this.handligTravelService.removeCardFromTravels(idx);
+  removeCard(travel: ITravel): void {
+    let numTravelsofThisCountry = this.travelsAll.filter((t)=> t.country == travel.country).length;
+    if (numTravelsofThisCountry < 2){
+      this.countryList.delete(travel.country);
+    }
+
+    this.handligTravelService.removeCardFromTravels(travel);
     this.checkPrices(this.travelsAll);
   }
 

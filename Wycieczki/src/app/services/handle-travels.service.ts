@@ -18,8 +18,12 @@ export class HandleTravelsService {
     this.travels.next(this.travelsAll);
   }
 
-  removeCardFromTravels(idx: number):void{
-    this.travelsAll.splice(idx, 1);
+  removeCardFromTravels(travel: ITravel):void{
+    for( let i in this.travelsAll){
+      if (travel == this.travelsAll[Number(i)]){
+          this.travelsAll.splice(Number(i), 1);
+      }
+    }
     this.travels.next(this.travelsAll); 
   }
 

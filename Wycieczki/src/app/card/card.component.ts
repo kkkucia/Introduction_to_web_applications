@@ -12,13 +12,12 @@ export class CardComponent implements OnChanges{
   @Input() travel: ITravel;
   @Input() places: number;
   @Input() color: string;
-  @Input() idx: number;
   @Input() highPrice: number;
   @Input() lowPrice: number;
   @Input() currency: number;
   @Input() chosenTravels: Map<string, number>;
   @Output() emitTravelChanges: EventEmitter<number> = new EventEmitter<number>();
-  @Output() clickRemove: EventEmitter<number> = new EventEmitter<number>();
+  @Output() clickRemove: EventEmitter<ITravel> = new EventEmitter<ITravel>();
   @Output() changeAllCost: EventEmitter<number> = new EventEmitter<number>();
   ifSoldOut: boolean;
   ifMaxPlaces: boolean;
@@ -65,7 +64,7 @@ export class CardComponent implements OnChanges{
   }
 
   clickedRemove(): void {
-    this.clickRemove.emit(this.idx)
+    this.clickRemove.emit(this.travel)
   }
 
 

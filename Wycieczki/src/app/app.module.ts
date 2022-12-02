@@ -33,7 +33,7 @@ import { HandleTravelsService } from './services/handle-travels.service';
   imports: [
     BrowserModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
   providers: [FilterRangesService, HandleTravelsService],
   bootstrap: [AppComponent]

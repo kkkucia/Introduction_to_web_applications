@@ -8,7 +8,7 @@
     <app-currency-change (currencyChanger)="changeCurency($event)"></app-currency-change>
 </header>
 <div id="cardContainer">
-    <app-card *ngFor='let travel of travelsAll | filter: travelRanges, index as i' [idx]="i" [travel]="travel"
+    <app-card *ngFor='let travel of travelsAll | filter: travelRanges' [travel]="travel"
         [places]="travel.places" [highPrice]="highPrice" [lowPrice]="lowPrice" [currency]="currency"
         [chosenTravels]="chosenTravels" (changeAllCost)="changeAllCost($event)"
         (emitTravelChanges)="changeNumberTravels($event)" (clickRemove)="removeCard($event)">

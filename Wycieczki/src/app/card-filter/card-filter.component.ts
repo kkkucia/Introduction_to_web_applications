@@ -17,7 +17,6 @@ export class CardFilterComponent implements OnInit{
   constructor(private filterService: FilterRangesService){}
 
   ngOnInit(): void {
-
     this.filterService.setravelRanges(this.travels);
   }
 

@@ -26,9 +26,10 @@
     <div class="miniBox">
         <p>Kraj docelowy:</p>
         <div class="inputs" id="cityInputs">
-            <div *ngFor=" let i of countryList  | keyvalue ">
-                <input type="checkbox" id="{{i.key}}" name="{{i.key}}" value="{{i.key}}" checked="false" (change)="countryClicked($event)">
-                <label for="{{i.key}}"> {{i.key}} </label><br>
+            <div *ngFor=" let i of countryList | keyvalue ">
+                <input type="checkbox" id="country{{i.key}}" name="country{{i.key}}" value="{{i.key}}" checked="false" (change)="countryClicked($event)">
+                <label for="country{{i.key}}"> {{i.key}} </label><br>
+                <img *ngIf="countryList.get(i.key)" src="../../assets/baggage.png" alt="">
             </div>
         </div>
     </div>

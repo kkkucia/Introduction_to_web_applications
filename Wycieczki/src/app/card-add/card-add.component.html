@@ -9,7 +9,7 @@
     <label>Krótki opis:</label><input name="description" formControlName="description">
     <label>Ścieżka do zdjęcia:</label><input name="image" formControlName="image"
         placeholder="../assets/images/nazwa.jpg">
-    <button type="submit">DODAJ</button>
+    <button type="submit" [disabled]="!modelForm.valid">DODAJ</button>
     <p *ngIf="error">Wprowadź poprawne dane!</p>
     <p *ngIf="dateError">Popraw daty!</p>
     <p *ngIf="correct">Dodano wycieczkę!</p>

@@ -40,17 +40,11 @@
         border: 1px solid white;
     }
 
-    .inputs>div>label:hover {
-        background-color: transparent;
-        color: white;
-
-    }
-
     .inputs>div:has(input:checked)>label {
         background-color: white;
     }
 
-    .inputs>div:has(input:checked)>label:hover {
+    .inputs>div:has(input:checked)>label:hover, .inputs>div>label:hover  {
         background-color: transparent;
         color: white;
     }
@@ -63,6 +57,42 @@
     #cityInputs>div>label {
         font-size: 15px;
         padding: 2px;
+        background-color: rgb(88, 88, 88);
+        color: black;
     }
+
+    #cityInputs>div>label:hover {
+        background-color: transparent;
+        color: white;
+
+    }
+
+    #cityInputs>div:has(input:checked)>label {
+        background-color: white;
+    }
+
+    #cityInputs>div:has(input:checked)>label:hover, #cityInputs>div>label:hover  {
+        background-color: transparent;
+        color: white;
+    }
+    #cityInputs>div>img{
+        width: 20px;
+        transform: translateY( -25px )  translateX( 15px);;
+    }
+
+    @media screen and (max-width: 755px) {
+        #box {
+            flex-direction: column;
+        }
+        .miniBox {
+            text-align: center;
+            justify-content: center;
+        }
+        .inputs{
+                text-align: center;
+                justify-content: center;
+        }
+    }
+   
 
 }
