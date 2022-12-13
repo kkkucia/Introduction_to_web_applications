@@ -1,6 +1,7 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { ITravel } from '../interfaces/travel';
 import { ITravelRanges } from '../interfaces/travelRanges';
+import { BusketHandlingService } from '../services/busket-handling.service';
 import { FilterRangesService } from '../services/filter-ranges.service';
 import { HandleTravelsService } from '../services/handle-travels.service';
 
@@ -12,46 +13,27 @@ import { HandleTravelsService } from '../services/handle-travels.service';
 
 
 export class CardListComponent implements OnInit {
+  [x: string]: any;
 
-  @Input() data: any[];
   travels: ITravel[] = new Array<ITravel>;
   travelsAll: ITravel[];
-  addtravelsAll: ITravel[];
   travelRanges: ITravelRanges;
-  countryList: Map<string, boolean> = new Map<string, boolean>();
+  countryList: Map<string, boolean>;
   currency: number = 0;
   counter: number = 0;
   highPrice: number;
   lowPrice: number;
-  chosenTravels: Map<string, number> = new Map<string, number>();
-  allCost: number = 0;
+  chosenTravels: Map<ITravel, number>;
+  allCost: number;
 
-  constructor(private filterService: FilterRangesService, private handligTravelService: HandleTravelsService) {
+  constructor(private filterService: FilterRangesService, private handligTravelService: HandleTravelsService, private busketHandleService: BusketHandlingService) {
   }
 
   ngOnInit(): void {
-    for (let travel of this.data) {
-      this.travels.push({
-        name: travel.name,
-        country: travel.country,
-        startDate: travel.startDate,
-        endDate: travel.endDate,
-        price: travel.price,
-        places: travel.places,
-        description: travel.description,
-        image: travel.image,
-        rating: 0,
-        ratingCounter: 0,
-        ratingSum: 0
-      })
-      
-      if (!this.countryList.has(travel.country)) {
-        this.countryList.set(travel.country, true);
-      }
-    }
-    this.handligTravelService.giveTravels(this.travels);
-
-    this.checkPrices(this.travels);
+    this.travels = this.handligTravelService.returnTravels()
+    this.filterService.checkPrices(this.travels);
+    this.lowPrice = this.filterService.givePrices()[0];
+    this.highPrice = this.filterService.givePrices()[1];
     this.travelsAll = this.travels.slice();
 
     this.travelRanges = {
@@ -65,56 +47,53 @@ export class CardListComponent implements OnInit {
 
     this.filterService.getRanges().subscribe(ranges => {
       this.travelRanges = ranges;
-      this.travelsAll = this.travels.slice();
+    });
+
+    this.filterService.getHighPrice().subscribe(price => {
+      this.highPrice = price;
+    });
+
+    this.filterService.getLowPrice().subscribe(price => {
+      this.lowPrice = price;
     });
 
     this.handligTravelService.getTravels().subscribe(travels => {
       this.travelsAll = travels;
     });
-  }
 
+    this.busketHandleService.getChosedTravelsList().subscribe(chosedTravelsList => {
+      this.chosenTravels = chosedTravelsList;
+    });
+
+    this.busketHandleService.getAllcost().subscribe(allCost => {
+      this.allCost = allCost;
+    });
+
+    this.busketHandleService.getTravelCounter().subscribe(travelCnt => {
+      this.counter = travelCnt;
+    });
+
+    this.busketHandleService.getActualCurrency().subscribe(curr => {
+      this.currency = curr
+    });
+
+    this.filterService.getCountryList().subscribe(list => {
+      this.countryList = list;
+    })
+  }
 
   changeNumberTravels(x: number): void {
-    this.counter += x;
-  }
-
-  changeAllCost(cost: number) {
-    this.allCost += cost;
+    this.busketHandleService.changeTravelNumber(x);
   }
 
   getBorderColor(): string {
     return this.counter >= 10 ? 'green' : 'red';
   }
 
-  checkPrices(travels: ITravel[]) {
-    this.highPrice = Number.NEGATIVE_INFINITY;
-    this.lowPrice = Number.POSITIVE_INFINITY;
-    for (var i in travels) {
-      this.highPrice = Math.max(this.highPrice, travels[i].price);
-      this.lowPrice = Math.min(this.lowPrice, travels[i].price);
-    }
-  }
-
-  changeCurency(curr: number) {
-    this.currency = curr;
-  }
-
   removeCard(travel: ITravel): void {
-    let numTravelsofThisCountry = this.travelsAll.filter((t)=> t.country == travel.country).length;
-    if (numTravelsofThisCountry < 2){
-      this.countryList.delete(travel.country);
-    }
-
+    this.filterService.delateFromCountryList(travel.country, this.travelsAll);
     this.handligTravelService.removeCardFromTravels(travel);
-    this.checkPrices(this.travelsAll);
-  }
-
-  formsEvent(travel: ITravel) {
-    this.handligTravelService.addCardToTravels(travel);
-    this.filterService.setravelRanges(this.travelsAll);
-    this.checkPrices(this.travelsAll);
-    if (!this.countryList.has(travel.country)) {
-      this.countryList.set(travel.country, true);
-    }
+    this.busketHandleService.removeTravelPlaces(travel)
+    this.filterService.checkPrices(this.travelsAll);
   }
 }

@@ -1,0 +1,74 @@
+[
+  {
+    "image": "../../assets/images/albania.jpg",
+    "thumbImage": "../../assets/images/albania.jpg",
+    "alt": "Albania",
+    "title": "Albania"
+  },
+  {
+    "image": "../../assets/images/usa.jpg",
+    "thumbImage": "../../assets/images/usa.jpg",
+    "alt": "USA",
+    "title": "USA"
+  },
+  {
+    "image": "../../assets/images/poland.jpg",
+    "thumbImage": "../../assets/images/poland.jpg",
+    "alt": "Polska",
+    "title": "Polska"
+  },
+  {
+    "image": "../../assets/images/greece.jpg",
+    "thumbImage": "../../assets/images/greece.jpg",
+    "alt": "Grecja",
+    "title": "Grecja"
+  },
+  {
+    "image": "../../assets/images/chiny.jpg",
+    "thumbImage": "../../assets/images/chiny.jpg",
+    "alt": "Chiny",
+    "title": "Chiny"
+  },
+  {
+    "image": "../../assets/images/australia.jpg",
+    "thumbImage": "../../assets/images/australia.jpg",
+    "alt": "Australia",
+    "title": "Australia"
+  },
+  {
+    "image": "../../assets/images/deafult.jpg",
+    "thumbImage": "../../assets/images/deafult.jpg",
+    "alt": "Polska",
+    "title": "Polska"
+  },
+  {
+    "image": "../../assets/images/england.jpg",
+    "thumbImage": "../../assets/images/england.jpg",
+    "alt": "Anglia",
+    "title": "Anglia"
+  },
+  {
+    "image": "../../assets/images/egypt.jpg",
+    "thumbImage": "../../assets/images/egypt.jpg",
+    "alt": "Egipt",
+    "title": "Egipt"
+  },
+  {
+    "image": "../../assets/images/france.jpg",
+    "thumbImage": "../../assets/images/france.jpg",
+    "alt": "Francja",
+    "title": "Francja"
+  },
+  {
+    "image": "../../assets/images/new.jpg",
+    "thumbImage": "../../assets/images/new.jpg",
+    "alt": "Słowacja",
+    "title": "Słowacja"
+  },
+  {
+    "image": "../../assets/images/niemcy.jpg",
+    "thumbImage": "../../assets/images/niemcy.jpg",
+    "alt": "Niemcy",
+    "title": "Niemcy"
+  }
+]

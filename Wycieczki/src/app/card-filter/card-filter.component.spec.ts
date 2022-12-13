@@ -8,9 +8,9 @@ describe('CardFilterComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ CardFilterComponent ]
+      declarations: [CardFilterComponent]
     })
-    .compileComponents();
+      .compileComponents();
 
     fixture = TestBed.createComponent(CardFilterComponent);
     component = fixture.componentInstance;

@@ -1,17 +1,12 @@
-<app-card-filter [travels]="travels" [highPrice]="highPrice" [lowPrice]="lowPrice" [countryList]="countryList">
+<app-card-filter [travels]="travels" [highPrice]="highPrice" [lowPrice]="lowPrice">
 </app-card-filter>
 <header>
-    <app-busket [travelCounter]="counter" [currency]="currency" [chosenTravels]="chosenTravels" [allCost]="allCost">
-    </app-busket>
     <div id="reservedTravels" [ngStyle]="{'border-color' : getBorderColor()}">Aktualnie zarezerwowanych wycieczek:
         {{counter}}</div>
-    <app-currency-change (currencyChanger)="changeCurency($event)"></app-currency-change>
+    <app-currency-change></app-currency-change>
 </header>
 <div id="cardContainer">
     <app-card *ngFor='let travel of travelsAll | filter: travelRanges' [travel]="travel"
-        [places]="travel.places" [highPrice]="highPrice" [lowPrice]="lowPrice" [currency]="currency"
-        [chosenTravels]="chosenTravels" (changeAllCost)="changeAllCost($event)"
         (emitTravelChanges)="changeNumberTravels($event)" (clickRemove)="removeCard($event)">
     </app-card>
 </div>
-<app-card-add (formSubmitEvent)="formsEvent($event)"></app-card-add>

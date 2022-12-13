@@ -44,7 +44,8 @@
         background-color: white;
     }
 
-    .inputs>div:has(input:checked)>label:hover, .inputs>div>label:hover  {
+    .inputs>div:has(input:checked)>label:hover,
+    .inputs>div>label:hover {
         background-color: transparent;
         color: white;
     }
@@ -71,28 +72,33 @@
         background-color: white;
     }
 
-    #cityInputs>div:has(input:checked)>label:hover, #cityInputs>div>label:hover  {
+    #cityInputs>div:has(input:checked)>label:hover,
+    #cityInputs>div>label:hover {
         background-color: transparent;
         color: white;
     }
-    #cityInputs>div>img{
+
+    #cityInputs>div>img {
         width: 20px;
-        transform: translateY( -25px )  translateX( 15px);;
+        transform: translateY(-25px) translateX(15px);
+        ;
     }
 
     @media screen and (max-width: 755px) {
         #box {
             flex-direction: column;
         }
+
         .miniBox {
             text-align: center;
             justify-content: center;
         }
-        .inputs{
-                text-align: center;
-                justify-content: center;
+
+        .inputs {
+            text-align: center;
+            justify-content: center;
         }
     }
-   
+
 
 }

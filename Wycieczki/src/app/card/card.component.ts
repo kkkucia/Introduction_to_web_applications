@@ -1,57 +1,53 @@
-import { Component, Input, Output, EventEmitter, OnChanges, SimpleChanges} from '@angular/core';
-import { CardListComponent } from '../card-list/card-list.component';
+import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { ITravel } from '../interfaces/travel';
+import { BusketHandlingService } from '../services/busket-handling.service';
+import { FilterRangesService } from '../services/filter-ranges.service';
+
 
 @Component({
   selector: 'app-card',
   templateUrl: './card.component.html',
   styleUrls: ['./card.component.scss']
 })
-export class CardComponent implements OnChanges{
+export class CardComponent implements OnInit {
 
   @Input() travel: ITravel;
-  @Input() places: number;
+  places: number;
   @Input() color: string;
-  @Input() highPrice: number;
-  @Input() lowPrice: number;
-  @Input() currency: number;
-  @Input() chosenTravels: Map<string, number>;
+  highPrice: number;
+  lowPrice: number;
+  currency: number = 0;
   @Output() emitTravelChanges: EventEmitter<number> = new EventEmitter<number>();
   @Output() clickRemove: EventEmitter<ITravel> = new EventEmitter<ITravel>();
-  @Output() changeAllCost: EventEmitter<number> = new EventEmitter<number>();
+  chosenTravels: Map<ITravel, number>;
   ifSoldOut: boolean;
   ifMaxPlaces: boolean;
   lastPlaces: boolean;
+  allCost: number;
 
-  constructor(private app: CardListComponent) {
+  constructor(private busketHandleService: BusketHandlingService, private filterService: FilterRangesService) {}
+  ngOnInit(): void {
+    this.places = this.travel.places;
+    this.busketHandleService.getChosedTravelsList().subscribe(chosedTravelsList => {
+      this.chosenTravels = chosedTravelsList;
+      this.places = this.busketHandleService.getLostPlaces(this.travel);
+    });
+    this.busketHandleService.getAllcost().subscribe(allCost => {
+      this.allCost = allCost;
+    });
+    this.busketHandleService.getActualCurrency().subscribe(newCurrency => {
+      this.currency = newCurrency;
+    });
+    this.filterService.getHighPrice().subscribe(price => {
+      this.highPrice = price;
+    });
 
-  }
-  
-  ngOnChanges(changes: SimpleChanges): void {
-    this.ifSoldOut = (this.places == 0);
-    this.ifMaxPlaces = (this.places == this.travel.places);
-    this.lastPlaces = (this.places <= 3);
-  }
+    this.filterService.getLowPrice().subscribe(price => {
+      this.lowPrice = price;
+    });
 
-  clickedChangePlaces(x: number): void {
-    if (x == 1) {
-      if (!this.ifMaxPlaces) {
-        this.places += x;
-        this.emitTravelChanges.emit(-x);
-        this.changeAllCost.emit(this.travel.price * -x)
-      }
-    } else {
-      if (!this.ifSoldOut) {
-        this.places += x;
-        this.emitTravelChanges.emit(-x);
-        this.changeAllCost.emit(this.travel.price * -x)
-      }
-    }
-    this.ifSoldOut = (this.places == 0);
-    this.ifMaxPlaces = (this.places == this.travel.places);
-    this.lastPlaces = (this.places <= 3);
-    this.chosenTravels.set(this.travel.name, this.travel.places - this.places);
-
+    this.lowPrice = this.filterService.givePrices()[0];
+    this.highPrice = this.filterService.givePrices()[1];
   }
 
   getShadowColor(): string {
@@ -66,6 +62,4 @@ export class CardComponent implements OnChanges{
   clickedRemove(): void {
     this.clickRemove.emit(this.travel)
   }
-
-
 }

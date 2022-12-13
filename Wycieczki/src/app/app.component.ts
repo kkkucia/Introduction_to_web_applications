@@ -1,12 +1,25 @@
-import { Component } from '@angular/core';
-import json from '../assets/travels.json';
+import { Component, OnInit } from '@angular/core';
+import { BusketHandlingService } from './services/busket-handling.service';
+import { HandleTravelsService } from './services/handle-travels.service';
+import json from '../assets/travels.json'
+import { CommentHandlingService } from './services/comment-handling.service';
+import { HistoryHandlingService } from './services/history-handling.service';
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
-  title = 'Wycieczki';
-  data: any[] = json;
+export class AppComponent implements OnInit {
+
+  data: any = json;
+
+  constructor(private busketHandleService: BusketHandlingService, private travelHandling: HandleTravelsService, private commentHandlingService: CommentHandlingService, private historyService: HistoryHandlingService) { }
+  ngOnInit(): void {
+    this.busketHandleService.ngOnInit();
+    this.travelHandling.createTravels(this.data);
+    this.commentHandlingService.ngOnInit();
+    this.historyService.ngOnInit();
+  }
 }

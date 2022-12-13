@@ -1,0 +1,65 @@
+:host {
+    #info {
+        margin-left: 8vw;
+        margin-top: 20px;
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.74);
+        border: 2px solid black;
+        height: 85vh;
+        width: 80vw;
+        content: "jaja";
+        z-index: 1;
+        color: white;
+        text-align: center;
+
+    }
+
+    #info>h1 {
+        color: rgb(0, 201, 117);
+    }
+
+    div>hr {
+        margin: 10px;
+    }
+
+    .travel {
+        border: 1px solid rgb(0, 201, 117);
+        padding: 5px;
+        margin-bottom: 8px;
+    }
+
+    #stateBox {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+
+    }
+
+    button {
+        background-color: rgba(255, 255, 255, 0.705);
+        border: 1px solid rgb(255, 255, 255);
+        cursor: pointer;
+        margin: 5px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    button:hover {
+        color: black;
+        background-color: rgb(255, 255, 255);
+    }
+
+    #buttonBox {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    @media screen and (max-width: 850px) {
+        #buttonBox {
+            flex-direction: column;
+        }
+    }
+
+}

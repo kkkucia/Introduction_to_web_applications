@@ -16,8 +16,15 @@ export class FilterRangesService {
     maxPrice: 100000,
     ratings: new Set<number>
   }
+  countryList: Map<string, boolean> = new Map<string, boolean>();
+   highPrice = Number.NEGATIVE_INFINITY;
+   lowPrice = Number.POSITIVE_INFINITY;
 
   private ranges: Subject<ITravelRanges> = new Subject<ITravelRanges>;
+
+  private bigPrice: Subject<number> = new Subject<number>;
+  private smallPrice: Subject<number> = new Subject<number>;
+  private countriesList: Subject<Map<string, boolean>> = new Subject<Map<string, boolean>>;
 
   constructor() { }
 
@@ -26,7 +33,12 @@ export class FilterRangesService {
       if (!this.travelRanges.countries.has(travel.country)) {
         this.travelRanges.countries.add(travel.country);
       }
+      if (!this.countryList.has(travel.country)) {
+        this.countryList.set(travel.country, true);
+      }
     }
+    this.countriesList.next(this.countryList);
+
     this.travelRanges.maxPrice = travels.reduce((a, b) => (a.price > b.price) ? a : b).price;
     this.travelRanges.minPrice = travels.reduce((a, b) => (a.price < b.price) ? a : b).price;
 
@@ -38,6 +50,17 @@ export class FilterRangesService {
     this.travelRanges.ratings.add(0).add(1).add(2).add(3).add(4).add(5);
 
     this.ranges.next(this.travelRanges);
+  }
+
+  checkPrices(travels: ITravel[]) {
+    this.highPrice = Number.NEGATIVE_INFINITY;
+    this.lowPrice = Number.POSITIVE_INFINITY;
+    for (var i in travels) {
+      this.highPrice = Math.max(this.highPrice, travels[i].price);
+      this.lowPrice = Math.min(this.lowPrice, travels[i].price);
+    }
+    this.bigPrice.next(this.highPrice);
+    this.smallPrice.next(this.lowPrice);
   }
 
   changeMinPrice(price: number): void {
@@ -80,7 +103,43 @@ export class FilterRangesService {
     this.ranges.next(this.travelRanges);
   }
 
+  delateFromCountryList(country: string, travelsAll :ITravel[]){
+    let numTravelsofThisCountry = travelsAll.filter((t)=> t.country == country).length;
+    if (numTravelsofThisCountry < 2){
+      this.countryList.delete(country);
+    }
+    this.countriesList.next(this.countryList);
+  }
+
+  addToCountryList(country:string){
+    if (!this.countryList.has(country)) {
+      this.countryList.set(country, true);
+    }
+    this.countriesList.next(this.countryList);
+  }
+
+  getCountryList(): Observable<Map<string, boolean>> {
+    return this.countriesList.asObservable();
+  }
+
+  returnCountryList(): Map<string, boolean> {
+    return this.countryList;
+  }
+
   getRanges(): Observable<ITravelRanges> {
     return this.ranges.asObservable();
   }
+
+  getHighPrice(): Observable<number> {
+    return this.bigPrice.asObservable();
+  }
+
+  getLowPrice(): Observable<number> {
+    return this.smallPrice.asObservable();
+  }
+
+  givePrices(): number[]{
+    return [this.lowPrice, this.highPrice];
+  }
+
 }

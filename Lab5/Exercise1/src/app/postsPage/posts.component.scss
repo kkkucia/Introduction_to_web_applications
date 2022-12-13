@@ -1,0 +1,28 @@
+:host{
+    .post{
+        border: 1px solid black;
+        padding: 10px;
+        margin: 10px;
+        background-color: lavender;
+    }
+    .post > p:nth-of-type(1){
+        text-align: left;
+    }
+
+    #forms{
+        background-color: rgb(203, 203, 255);
+    }
+    #forms > form{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    button{
+        background-color: rgb(156, 51, 255);
+        color: white;
+        cursor: pointer;
+        margin: 20px 0px;
+        padding: 5px 10px;
+    }
+}

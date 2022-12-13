@@ -82,8 +82,8 @@
     {
         "name": "Uniknąć śmierci!",
         "country": "Australia",
-        "startDate": "01-13-2023",
-        "endDate": "01-20-2023",
+        "startDate": "01-11-2022",
+        "endDate": "01-20-2022",
         "price": 2100,
         "places": 0,
         "description": "Kangury, koale, pająki, pająki i więcej pająków.",
@@ -92,12 +92,11 @@
     {
         "name": "Gorzka wódka, trzeba ją osłodzić!",
         "country": "Polska",
-        "startDate": "01-14-2023",
-        "endDate": "01-21-2023",
+        "startDate": "01-14-2022",
+        "endDate": "01-21-2022",
         "price": 2000,
         "places": 12,
         "description": "Kraków, Warszawa, wódka, inflacja taka sytuacja.",
         "image": "../assets/images/poland.jpg"
     }
-    
 ]

@@ -1,6 +1,8 @@
-;import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+; import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ITravel } from '../interfaces/travel';
+import { FilterRangesService } from '../services/filter-ranges.service';
+import { HandleTravelsService } from '../services/handle-travels.service';
 
 @Component({
   selector: 'app-card-add',
@@ -13,9 +15,8 @@ export class CardAddComponent implements OnInit {
   error: boolean = false;
   dateError: boolean = false;
   correct: boolean = false;
-  @Output() formSubmitEvent = new EventEmitter<ITravel>();
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private handligTravelService: HandleTravelsService, private filterService: FilterRangesService) { }
 
   ngOnInit(): void {
     this.modelForm = this.formBuilder.group({
@@ -30,7 +31,7 @@ export class CardAddComponent implements OnInit {
     });
   }
 
-  onSubmit(data: any):void {
+  onSubmit(data: any): void {
     this.error = false;
     this.correct = false;
     this.dateError = false;
@@ -41,6 +42,7 @@ export class CardAddComponent implements OnInit {
     }
 
     let newTravel: ITravel = {
+      id: this.handligTravelService.returnId(),
       name: data.get("name").value,
       country: data.get("country").value,
       startDate: data.get("startDate").value,
@@ -51,19 +53,25 @@ export class CardAddComponent implements OnInit {
       image: data.get("image").value,
       rating: 0,
       ratingCounter: 0,
-      ratingSum: 0
-      }
+      ratingSum: 0,
+      state: 'oferta',
+      buyDate: new Date(),
+    }
 
-    if(newTravel.startDate > newTravel.endDate){
-        this.dateError = true;
-        return;
-      }
+    if (newTravel.startDate > newTravel.endDate) {
+      this.dateError = true;
+      return;
+    }
 
-    this.formSubmitEvent.emit(newTravel);
-    console.log(newTravel)
+    this.addTravelToList(newTravel);
     this.correct = true;
     data.reset();
 
   }
+  addTravelToList(travel: ITravel) {
+    this.handligTravelService.addCardToTravels(travel);
+    this.filterService.addToCountryList(travel.country);
+  }
 
 }
+

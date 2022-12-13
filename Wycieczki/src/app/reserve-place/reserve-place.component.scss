@@ -1,4 +1,15 @@
 :host {
+    div {
+        align-items: center;
+    }
+
+    #buttons {
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
     button {
         margin: 5px;
         cursor: pointer;
@@ -7,6 +18,16 @@
     button:hover {
         border-radius: 3px;
         background-color: white;
+        font-weight: bold;
+    }
+
+    #soldOut {
+        color: red;
+        font-size: larger;
+        font-weight: bold;
+    }
+
+    #maxPlaces {
         font-weight: bold;
     }
 }

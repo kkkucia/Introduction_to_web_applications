@@ -1,0 +1,23 @@
+<div class="container">
+    <div class="cardNamePhoto">
+        <h1>{{travel.name | uppercase}}</h1>
+        <img src="{{travel.image}}" alt="" [ngStyle]="{'filter': places == 0? 'grayscale(1)': 'none'}">
+    </div>
+    <div class="cardInfo">
+        <h2 class="center"><strong>{{travel.country | uppercase}}</strong></h2>
+        <p class="center">{{travel.startDate | date:'MM/dd/yyyy'}} - {{travel.endDate | date:'MM/dd/yyyy'}}</p>
+        <p class="center"><strong> {{travel.price | currency: currency }}</strong></p>
+        <hr>
+        <app-travel-rating [travel]="travel"></app-travel-rating>
+        <hr>
+        <p class="center">{{travel.description}}</p>
+        <p class="center">Ilość miejsc: {{places}}</p>
+        <app-reserve-place [travel]="travel">
+        </app-reserve-place>
+    </div>
+</div>
+<div id="slider">
+    <h2>Zdjęcia z wycieczek:</h2>
+    <ng-image-slider [images]="imgCollection" #nav></ng-image-slider>
+</div>
+<app-comments-section></app-comments-section>

@@ -1,0 +1,17 @@
+:host{
+    div{
+        background-color: rgba(230, 230, 250, 0.644);
+        padding: 10px 0px;
+        margin: 10px;
+    }
+
+    div >p > i{
+        background-color: rgb(202, 202, 255);
+        padding: 0px 4px;
+    }
+
+    img{
+        width: 30vw;
+        border: 2px solid rgb(52, 6, 95);
+    }
+}

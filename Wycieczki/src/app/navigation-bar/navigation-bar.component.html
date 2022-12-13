@@ -1,0 +1,45 @@
+<nav>
+    <div id="logo"><b> &#x291C;PODRÓŻE MAŁE I DUŻE&#x291B;</b></div>
+    <input id="mobileMenu" type="checkbox" />
+    <label class='burgerBox' for="mobileMenu">
+        <div class='burger'>
+            <div></div>
+        </div>
+    </label>
+
+    <ul class="menu">
+        <a routerLink="mainPage" routerLinkActive="active">
+            <li>STRONA GŁÓWNA</li>
+        </a>
+        <a routerLink="cardList" routerLinkActive="active">
+            <li>WYCIECZKI</li>
+        </a>
+        <a routerLink="cardAdd" routerLinkActive="active">
+            <li>DODAJ WYCIECZKĘ</li>
+        </a>
+        <a routerLink="busket" routerLinkActive="active">
+            <li>KOSZYK</li>
+        </a>
+        <a routerLink="history" routerLinkActive="active">
+            <li>HISTORIA</li>
+        </a>
+    </ul>
+</nav>
+<div id="info">
+    <div id="travelNum">
+        <p id="num">{{nearTravel}}</p>
+    </div>
+
+    <div id="travelNum"><img src="../../assets/icons8-user-64.png" alt="Wycieczek: " width="40px">
+        <p id="num">{{login}}</p>
+    </div>
+
+    <div id="travelNum"><img src="../../assets/icons8-earth-globe-96.png" alt="Wycieczek: " width="40px">
+        <p id="num">{{counter}}</p>
+    </div>
+
+    <div id="travelNum"><img src="../../assets/icons8-basket-64.png" alt="Wycieczek: " width="40px">
+        <p id="num">{{cost | currency: currency }}</p>
+    </div>
+
+</div>

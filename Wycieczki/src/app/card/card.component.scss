@@ -29,7 +29,12 @@
         margin: 20px 0px;
     }
 
-    .card>img {
+    .card>a {
+        width: 260px;
+    }
+
+    .card>a>img {
+        width: 260px;
         clip-path: circle(40.7% at 50% 50%);
         scale: 0.6;
         margin: -80px 0px -60px 0px;
@@ -45,7 +50,7 @@
         font-weight: bold;
     }
 
-    .card:has(#soldOut)>img {
+    .card:has(#soldOut)>a>img {
         filter: grayscale(1);
     }
 

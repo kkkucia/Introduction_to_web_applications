@@ -1,0 +1,27 @@
+<div id="info">
+    <div id="buttonBox">
+        <app-currency-change></app-currency-change>
+        <div id="stateBox">
+            <button (click)="changeState('before')">Przed</button>
+            <button (click)="changeState('now')">W trakcie</button>
+            <button (click)="changeState('after')">Zakończona</button>
+            <button (click)="changeState('all')">Wszystkie</button>
+        </div>
+    </div>
+    <h1>Historia Twoich wycieczek:</h1>
+
+    <hr>
+    <div *ngFor="let travel of historyTravels | state: state | keyvalue">
+        <div class="travel">
+            <h2> <strong> {{travel.key.name}}</strong></h2>
+            <p>Kraj: {{travel.key.country}}</p>
+            <p>{{travel.key.startDate}} - {{travel.key.endDate}}</p>
+            <p>Ilość biletów: {{travel.value}}</p>
+            <p>Cena jednostkowa: {{travel.key.price | currency : currency}}</p>
+            <p>Cena za wszystkie bilety: {{(travel.key.price * travel.value) | currency : currency}}</p>
+            <p>{{travel.key.buyDate | date: 'd/MM/YYYY'}}</p>
+            <p> <strong> Status: {{travel.key.state}}</strong></p>
+        </div>
+    </div>
+
+</div>

@@ -1,0 +1,10 @@
+<h1>Photos page!</h1>
+
+<ng-container *ngFor="let photo of photos">
+    <div class="photo" >
+        <p> Title: {{photo.title}}</p>
+        <p>ID: {{photo.id}}</p>
+        <a routerLink="/photos/{{photo.id}}"><img src={{photo.thumbnailUrl}} alt=""></a>
+        <p> <i>Click on the photo to see full photo</i></p>
+    </div>
+</ng-container>

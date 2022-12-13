@@ -1,9 +1,27 @@
-<button (click)="showAndHideBusket()"><img src="../../assets/icons8-shopping-basket-64.png" width="40px" alt=""></button>
-<div *ngIf="busketOn" id="busket">
-    <h2>Kwota do zapłacenia: {{ allCost | currency: currency }}</h2>
+<div id="busket">
+    <app-currency-change *ngIf="allCost != 0"></app-currency-change>
+    <h1>Kwota do zapłacenia: {{ allCost | currency: currency }}</h1>
     <hr>
-    <div *ngFor="let travel of chosenTravels | keyvalue">
-        <div *ngIf="travel.value != 0">{{travel.value}} x {{travel.key}}</div>
+    <div *ngIf="allCost == 0">
+        <p>W koszyku nie masz jeszcze żadnych wycieczek</p>
+        <p>Przejdź do sekcji <i>WYCIECZKI</i> i znajdź coś specjalnie dla Ciebie!</p>
+    </div>
+
+    <div id="travelBox">
+        <div *ngFor="let travel of chosenTravels | keyvalue">
+            <div *ngIf="travel.value != 0">
+                <div>
+                    <h2>{{travel.key.name}}</h2>
+                    <div>
+                        <p>Cena jednostkowa: {{travel.key.price | currency : currency}}</p>
+                        <p>Ilość biletów: {{travel.value}}</p>
+                        <p>Cena za wszystkie bilety: {{(travel.value * travel.key.price) | currency : currency}}</p>
+                        <p>Status: {{travel.key.state}}</p>
+                        <button (click)="buyTravel(travel.key, travel.value)">Kup wycieczkę!</button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>

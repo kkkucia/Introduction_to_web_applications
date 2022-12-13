@@ -1,2 +1,9 @@
-<button *ngIf="!ifMaxPlaces" (click)="removeTravel()">-</button>
-<button *ngIf="!ifSoldOut" (click)="addTravel()">+</button>
+<div>
+    <div id="buttons">
+        <button *ngIf="!ifMaxPlaces" (click)="removeTravel()">-</button>
+        <button *ngIf="!ifSoldOut" (click)="addTravel()">+</button>
+    </div>
+    <p id="soldOut" *ngIf="ifSoldOut">BRAK MIEJSC!</p>
+    <p id="maxPlaces" *ngIf="!ifSoldOut" [ngStyle]="{'color': lastPlaces? 'orange': 'rgb(0, 175, 175)'}">WOLNE MIEJSCA!
+    </p>
+</div>

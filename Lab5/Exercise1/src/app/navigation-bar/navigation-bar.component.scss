@@ -1,0 +1,25 @@
+:host{
+    nav{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        padding: 0px 5px;
+        background-color: lavender;
+    }
+
+    nav > a > div{
+        font-weight: bold;
+        font-size: 20px;
+        background-color: rgb(213, 213, 255);
+        padding: 15px 30px;
+    }
+
+    nav > a > div:hover{
+        background-color: rgb(166, 134, 255);
+    }
+
+    nav > a{
+        cursor: pointer;
+        text-decoration: none; 
+    }
+}

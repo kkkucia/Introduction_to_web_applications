@@ -1,4 +1,5 @@
-import { Component, Output, EventEmitter } from '@angular/core';
+import { Component } from '@angular/core';
+import { BusketHandlingService } from '../services/busket-handling.service';
 
 @Component({
   selector: 'app-currency-change',
@@ -6,11 +7,12 @@ import { Component, Output, EventEmitter } from '@angular/core';
   styleUrls: ['./currency-change.component.scss']
 })
 export class CurrencyChangeComponent {
-  @Output() currencyChanger: EventEmitter<number> = new EventEmitter<number>;
 
+  constructor(private currencyHandler: BusketHandlingService) { }
 
   changeCurrency(currency: number): void {
-    this.currencyChanger.emit(currency);
+    this.currencyHandler.changeCurency(currency);
+
   }
 
 }

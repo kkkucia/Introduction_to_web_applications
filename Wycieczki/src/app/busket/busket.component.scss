@@ -1,23 +1,4 @@
 :host {
-    button {
-        background-color: rgba(255, 255, 255, 0.705);
-        border: 1px solid rgb(255, 255, 255);
-        width: fit-content;
-        align-items: center;
-        transform: translateY(12px);
-        cursor: pointer;
-        margin-right: 8px;
-    }
-
-    button:hover {
-
-        background-color: rgb(255, 255, 255);
-    }
-
-    img {
-        scale: 0.8;
-    }
-
     #busket {
         margin-left: 8vw;
         margin-top: 20px;
@@ -26,24 +7,50 @@
         border: 2px solid black;
         height: 85vh;
         width: 80vw;
-        content: "jaja";
-        z-index: 1;
         color: white;
         text-align: center;
     }
 
-    div>h2 {
+    div>h1 {
         margin-bottom: 10px;
+        color: rgb(0, 201, 117);
     }
 
-    div>div {
+    #busket>div {
         margin-top: 10px;
     }
 
     div>hr {
         margin: 10px;
+    }
 
+    #travelBox {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }
 
+    #travelBox>div>div {
+        background: linear-gradient(90deg, rgb(192, 192, 192) 9%, rgb(255, 255, 255) 50%, rgb(206, 206, 206) 91%);
+        box-shadow: 8px 8px 24px 0px rgba(255, 255, 255, 0.781);
+        border: 1px solid black;
+        color: black;
+        text-align: center;
+        padding: 10px;
+    }
+
+    button {
+        margin: 5px;
+        cursor: pointer;
+        background-color: black;
+        color: white;
+    }
+
+    button:hover {
+        border-radius: 3px;
+        background-color: white;
+        color: black;
+        font-weight: bold;
     }
 
 

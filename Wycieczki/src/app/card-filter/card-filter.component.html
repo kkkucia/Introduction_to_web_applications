@@ -1,6 +1,6 @@
 <div id="box">
     <div class="miniBox">
-        <p>Cena:</p>
+        <p>Cena (w PLN):</p>
         <p>Od <input type="number" min="{{lowPrice}}" max="{{highPrice}}" step="0.1" placeholder="{{lowPrice}}"
                 (change)="minPriceClicked($event)"></p>
         <p>Do <input type="number" min="{{lowPrice}}" max="{{highPrice}}" step="0.1" placeholder="{{highPrice}}"
@@ -11,7 +11,8 @@
         <p>Ocena:</p>
         <div class="inputs">
             <div *ngFor=" let i of rateList">
-                <input type="checkbox" id="rate{{i}}" name="rate{{i}}" value="{{i}}" checked="false" (change)="rateClicked($event)">
+                <input type="checkbox" id="rate{{i}}" name="rate{{i}}" value="{{i}}" checked="false"
+                    (change)="rateClicked($event)">
                 <label for="rate{{i}}"> {{i}} </label><br>
             </div>
         </div>
@@ -27,7 +28,8 @@
         <p>Kraj docelowy:</p>
         <div class="inputs" id="cityInputs">
             <div *ngFor=" let i of countryList | keyvalue ">
-                <input type="checkbox" id="country{{i.key}}" name="country{{i.key}}" value="{{i.key}}" checked="false" (change)="countryClicked($event)">
+                <input type="checkbox" id="country{{i.key}}" name="country{{i.key}}" value="{{i.key}}" checked="false"
+                    (change)="countryClicked($event)">
                 <label for="country{{i.key}}"> {{i.key}} </label><br>
                 <img *ngIf="countryList.get(i.key)" src="../../assets/baggage.png" alt="">
             </div>

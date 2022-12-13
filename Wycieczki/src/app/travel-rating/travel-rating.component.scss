@@ -2,7 +2,7 @@
     .starBox {
         width: 70px;
         position: relative;
-        margin: -15px 0 0px 70px;
+        margin: 0 auto;
         display: flex;
         flex-direction: row;
         justify-content: space-evenly;
@@ -41,7 +41,9 @@
         color: gold;
     }
 
-
-
+    .score{
+    text-align: center;
+    font-size: 20px;
+    }
 
 }
