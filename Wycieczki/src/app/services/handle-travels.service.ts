@@ -1,47 +1,56 @@
-import { Injectable } from '@angular/core';
+import { Injectable, OnInit} from '@angular/core';
 import { ITravel } from '../interfaces/travel';
-import { Observable, Subject } from 'rxjs';
+import { Observable, Subject, Subscription } from 'rxjs';
 import { FilterRangesService } from './filter-ranges.service';
+import { FirebaseDataService } from './firebase-data.service';
 
 @Injectable({
   providedIn: 'root'
 })
-export class HandleTravelsService {
+export class HandleTravelsService implements  OnInit{
 
-  private travelsAll: ITravel[] = [];
+  private travelsAll: ITravel[];
   idx: number = 0;
+  t: any;
+  travelSub: Subscription | undefined;
 
   private travels: Subject<ITravel[]> = new Subject<ITravel[]>;
 
-  constructor(private filterService: FilterRangesService) { }
+  constructor(private filterService: FilterRangesService, private db: FirebaseDataService) { }
 
-  createTravels(data: any): void {
-
-    for (let travel of data) {
-      this.travelsAll.push({
-        id: this.idx,
-        name: travel.name,
-        country: travel.country,
-        startDate: travel.startDate,
-        endDate: travel.endDate,
-        price: travel.price,
-        places: travel.places,
-        description: travel.description,
-        image: travel.image,
-        rating: 0,
-        ratingCounter: 0,
-        ratingSum: 0,
-        state: 'oferta',
-        buyDate: new Date()
-      })
-      this.idx += 1;
-    }
+  ngOnInit(): void {
+   this.travelSub = this.db.getTravelsRef().subscribe((change:any) => {
+      let t = []
+      for (let travel of change){
+        t.push({
+          id: this.idx,
+          name: travel.name,
+          country: travel.country,
+          startDate: travel.startDate,
+          endDate: travel.endDate,
+          price: travel.price,
+          places: travel.places,
+          description: travel.description,
+          image: travel.image,
+          rating: 0,
+          ratingCounter: 0,
+          ratingSum: 0,
+          state: 'oferta',
+          buyDate: new Date()
+        } as ITravel)
+        this.idx += 1;
+      }
+      
+      this.travelsAll = t;
+    })
   }
 
+ 
   removeCardFromTravels(travel: ITravel): void {
     for (let i in this.travelsAll) {
       if (travel == this.travelsAll[Number(i)]) {
         this.travelsAll.splice(Number(i), 1);
+        this.db.delateTravel(travel);
       }
     }
     this.travels.next(this.travelsAll);
@@ -49,17 +58,22 @@ export class HandleTravelsService {
 
   addCardToTravels(card: ITravel): void {
     this.travelsAll.push(card);
+    this.db.addTravel(card);
     this.filterService.checkPrices(this.travelsAll);
     this.filterService.setravelRanges(this.travelsAll);
     this.travels.next(this.travelsAll);
   }
 
   changeTravelAvaiablePlaces(travel: ITravel, tickets: number) {
+    let p: number = travel.places;
     for (let t of this.travelsAll) {
       if (t == travel) {
-        t.places -= tickets;
+        p = t.places - tickets;
+        t.places = p;
+        break;
       }
     }
+    this.db.changePlaces(travel, p)
     this.travels.next(this.travelsAll);
   }
 

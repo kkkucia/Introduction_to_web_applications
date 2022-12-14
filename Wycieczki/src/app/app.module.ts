@@ -26,7 +26,11 @@ import { CommentsSectionComponent } from './comments-section/comments-section.co
 import { CommentHandlingService } from './services/comment-handling.service';
 import { DatePipe } from '@angular/common';
 import { StatePipe } from './shared/state.pipe';
-
+import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
+import { environment } from '../environments/environment';
+import { provideDatabase,getDatabase } from '@angular/fire/database';
+import { FirebaseDataService } from './services/firebase-data.service';
+import { AngularFireModule } from '@angular/fire/compat';
 
 @NgModule({
   declarations: [
@@ -53,9 +57,12 @@ import { StatePipe } from './shared/state.pipe';
     FormsModule,
     ReactiveFormsModule,
     AppRoutingModule,
-    NgImageSliderModule
+    NgImageSliderModule,
+    AngularFireModule.initializeApp(environment.firebase),
+    provideFirebaseApp(() => initializeApp(environment.firebase)),
+    provideDatabase(() => getDatabase())
   ],
-  providers: [DatePipe, FilterRangesService, HandleTravelsService, BusketHandlingService, CommentHandlingService],
+  providers: [FirebaseDataService, DatePipe, FilterRangesService, HandleTravelsService, BusketHandlingService, CommentHandlingService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
