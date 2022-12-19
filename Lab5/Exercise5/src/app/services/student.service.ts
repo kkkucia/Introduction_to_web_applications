@@ -10,7 +10,6 @@ import { Student } from '../interfaces/student';
 export class StudentService {
 
   daneRef: Observable<any[]>;
-  private nextKey: number = 0;
 
   constructor(private db: AngularFireDatabase) {
     this.daneRef = this.db.list('students').valueChanges();
@@ -18,31 +17,38 @@ export class StudentService {
 
   createStudent(student: any): void {
     let newStudent: Student = {
-      "key": this.nextKey,
       "age": student.age,
       "name": student.name
     }
-    this.nextKey += 1;
     this.db.list('students').push(newStudent);
 
   }
 
-  deleteStudent(student: Student) {
-    let key: any;
+  getStudentsList(): Observable<any[]> {
+    this.daneRef = this.db.list('students').valueChanges();
+    return this.daneRef
+  }
+
+  changeStudentAge(student: Student, age: number){
     this.db.list('students').snapshotChanges().pipe(first()).subscribe((items: any) => {
       for (let i of items) {
-        if (i.payload.val().name == student.name && i.payload.val().key == student.key && i.payload.val().age == student.age) {
-          key = i.payload.key;
-          this.db.list('students').remove(key);
+        if (i.payload.val().name == student.name && i.payload.val().age == student.age) {
+          this.db.list('students').update(i.payload.key, {age: age})
           break;
         }
       }
     })
   }
 
-  getStudentsList(): Observable<any[]> {
-    this.daneRef = this.db.list('students').valueChanges();
-    return this.daneRef
+  deleteStudent(student: Student) {
+    this.db.list('students').snapshotChanges().pipe(first()).subscribe((items: any) => {
+      for (let i of items) {
+        if (i.payload.val().name == student.name  && i.payload.val().age == student.age) {
+          this.db.list('students').remove(i.payload.key);
+          break;
+        }
+      }
+    })
   }
 
   deleteAll() {

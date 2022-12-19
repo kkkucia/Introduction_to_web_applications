@@ -5,7 +5,6 @@ import { ITravel } from '../interfaces/travel';
 import { BusketHandlingService } from '../services/busket-handling.service';
 import { HandleTravelsService } from '../services/handle-travels.service';
 
-import json from '../../assets/imgCollection.json'
 
 @Component({
   selector: 'app-single-travel',
@@ -21,7 +20,7 @@ export class SingleTravelComponent implements OnInit, OnDestroy {
   chosenTravels: Map<ITravel, number>;
   currency: number;
   places: number;
-  imgCollection: Array<object> = json;
+  imgCollection: Array<object>;
 
   constructor(private route: ActivatedRoute, private handligTravelService: HandleTravelsService, private busketHandleService: BusketHandlingService) {
   }
@@ -49,11 +48,27 @@ export class SingleTravelComponent implements OnInit, OnDestroy {
     });
 
     this.currency = this.busketHandleService.getBusket().currency;
+
+    this.prepareImgCollection();
   }
 
   ngOnDestroy(): void {
     if (this.subscription)
       this.subscription.unsubscribe()
+  }
+
+  prepareImgCollection(){
+    this.imgCollection = new Array<object>;
+    let obj = {
+        image: this.travel.image,
+        thumbImage: this.travel.image,
+        alt: this.travel.country,
+        title: this.travel.country
+    }
+    this.imgCollection.push(obj);
+    for (let i = 0; i < 10; i++) {
+      this.imgCollection.push(obj);
+    }
   }
 }
 

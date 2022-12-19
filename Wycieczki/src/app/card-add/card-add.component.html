@@ -12,5 +12,6 @@
     <button type="submit" [disabled]="!modelForm.valid">DODAJ</button>
     <p *ngIf="error">Wprowadź poprawne dane!</p>
     <p *ngIf="dateError">Popraw daty!</p>
+    <p *ngIf="datePastError">Masz daty z przeszłości!</p>
     <p *ngIf="correct">Dodano wycieczkę!</p>
 </form>

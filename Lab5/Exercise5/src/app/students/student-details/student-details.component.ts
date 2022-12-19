@@ -18,6 +18,12 @@ export class StudentDetailsComponent implements OnInit {
 
   deleteStudent() {
     this.studentService.deleteStudent(this.student);
-
   }
+
+  editStudentAge(event: any){
+    if (event.target.age.value != ''){
+      this.studentService.changeStudentAge(this.student, Number(event.target.age.value));
+    }
+  }
+
 }

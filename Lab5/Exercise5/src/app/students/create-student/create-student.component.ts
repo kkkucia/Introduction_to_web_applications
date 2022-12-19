@@ -28,7 +28,6 @@ export class CreateStudentComponent implements OnInit {
   }
 
   onSubmit(f :NgForm) {
-    console.log(f.value)
     this.submitted = true;
     this.save(f.value);
   }

@@ -6,7 +6,11 @@
     <label>Wiek: </label> {{student.age}}
   </div>
  
-  <span class="button is-small btn-danger" (click)='deleteStudent()'>Delete</span>
-
+  <hr>
+  <span class="button is-small btn-danger" (click)='deleteStudent()'>Usuń</span>
+  <form #formcontrol="ngForm" (ngSubmit)="editStudentAge($event)">
+  <input type="number" size="20" min="0" max="150" step="1" value="age" name="age" id="age" placeholder="Wiek" required>
+  <button type="submit" [disabled]="!formcontrol.form.valid" class="button is-small btn-danger" >Zmień wiek</button>
+</form>
   <hr />
 </div>

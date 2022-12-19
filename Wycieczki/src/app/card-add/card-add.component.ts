@@ -14,6 +14,7 @@ export class CardAddComponent implements OnInit {
   modelForm: FormGroup;
   error: boolean = false;
   dateError: boolean = false;
+  datePastError: boolean = false;
   correct: boolean = false;
 
   constructor(private formBuilder: FormBuilder, private handligTravelService: HandleTravelsService, private filterService: FilterRangesService) { }
@@ -35,6 +36,7 @@ export class CardAddComponent implements OnInit {
     this.error = false;
     this.correct = false;
     this.dateError = false;
+    this.datePastError = false;
 
     if (!data.valid) {
       this.error = true;
@@ -58,8 +60,14 @@ export class CardAddComponent implements OnInit {
       buyDate: new Date(),
     }
 
-    if (newTravel.startDate > newTravel.endDate) {
+    if (new Date(newTravel.startDate) > new Date(newTravel.endDate)) {
       this.dateError = true;
+      return;
+    }
+
+    let today = new Date;
+    if (new Date(newTravel.startDate) <= today || new Date(newTravel.endDate) <= today) {
+      this.datePastError = true;
       return;
     }
 
