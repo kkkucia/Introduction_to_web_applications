@@ -1,8 +1,13 @@
 <div>
-    <div id="buttons">
+    <div id="buttons" *ngIf="auth.userData != null">
         <button *ngIf="!ifMaxPlaces" (click)="removeTravel()">-</button>
         <button *ngIf="!ifSoldOut" (click)="addTravel()">+</button>
     </div>
+    <form [formGroup]="numberForm" *ngIf="auth.userRoles.manager == true || auth.userRoles.admin== true">
+        <input type="number"  min="0" placeholder="Ilość miejsc" formControlName="newTravelPlaces" width="20">
+        <button type="submit" [disabled]="!numberForm.valid" (click)="changeTravelPlaces()">Zmień ilość miejsc</button>
+    </form>
+    
     <p id="soldOut" *ngIf="ifSoldOut">BRAK MIEJSC!</p>
     <p id="maxPlaces" *ngIf="!ifSoldOut" [ngStyle]="{'color': lastPlaces? 'orange': 'rgb(0, 175, 175)'}">WOLNE MIEJSCA!
     </p>

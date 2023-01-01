@@ -1,0 +1,66 @@
+:host{
+    #bigBox{
+        margin: 0 auto;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        text-align: center;
+    }
+    .miniBox{
+        margin: 0 auto;
+        padding: 10px 20px;
+        border: 1px solid rgb(255, 255, 255);
+        width: max-content;
+        height: fit-content;
+        margin-top: 10px;
+    }
+    .miniBox> p{
+        color: white;
+    }
+    .miniBox> h2{
+        color: rgb(0, 201, 117);
+    }
+
+    .miniBox > button {
+        background-color: rgba(255, 255, 255, 0.705);
+        border: 1px solid rgb(255, 255, 255);
+        cursor: pointer;
+        margin: 5px;
+        font-weight: bold;
+        font-size: 18px;
+    }
+
+    .miniBox > button:hover {
+        color: black;
+        background-color: rgb(255, 255, 255);
+    }
+
+    .oneUser{
+        color: white;
+        border: 1px solid white;
+        padding: 10px;
+        margin-bottom: 5px;
+    }
+
+    .oneRole{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        text-align: center;
+        align-items: center;
+    }
+
+    .oneRole > button {
+        background-color: rgba(255, 255, 255, 0.705);
+        border: 1px solid rgb(255, 255, 255);
+        cursor: pointer;
+        margin: 5px;
+        font-weight: bold;
+        font-size: 14px;
+    }
+
+    .oneRole > button:hover {
+        color: black;
+        background-color: rgb(255, 255, 255);
+    }
+}

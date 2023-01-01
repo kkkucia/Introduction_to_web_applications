@@ -19,7 +19,7 @@ export class HandleTravelsService implements  OnInit{
   constructor(private filterService: FilterRangesService, private db: FirebaseDataService) { }
 
   ngOnInit(): void {
-   this.travelSub = this.db.getTravelsRef().subscribe((change:any) => {
+   this.travelSub = this.db.getTravels().subscribe((change:any) => {
       let t = []
       for (let travel of change){
         t.push({
@@ -40,12 +40,10 @@ export class HandleTravelsService implements  OnInit{
         } as ITravel)
         this.idx += 1;
       }
-      
       this.travelsAll = t;
     })
   }
 
- 
   removeCardFromTravels(travel: ITravel): void {
     for (let i in this.travelsAll) {
       if (travel == this.travelsAll[Number(i)]) {
@@ -89,4 +87,16 @@ export class HandleTravelsService implements  OnInit{
     this.idx += 1
     return this.idx - 1
   }
+
+  changeTravelPlacesNumber(travel: ITravel, newPlaces: number){
+    for (let t of this.travelsAll) {
+      if (t == travel) {
+        t.places = newPlaces;
+        break;
+      }
+    }
+    this.db.changePlaces(travel, newPlaces)
+    this.travels.next(this.travelsAll);
+  }
+
 }

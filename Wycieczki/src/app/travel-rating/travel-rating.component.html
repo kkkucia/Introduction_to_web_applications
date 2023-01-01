@@ -1,13 +1,17 @@
-<div class="starBox">
-    <input type="radio" name={{travel.name}} value="5" (click)="starClicked($event)">
+<div class="starBox" *ngIf="canBeRated" >
+    <input type="radio" name={{travelToRate.name}} value="5" (click)="starClicked($event)">
     <label for="5"></label>
-    <input type="radio" name={{travel.name}} value="4" (click)="starClicked($event)">
+    <input type="radio" name={{travelToRate.name}} value="4" (click)="starClicked($event)">
     <label for="4"></label>
-    <input type="radio" name={{travel.name}} value="3" (click)="starClicked($event)">
+    <input type="radio" name={{travelToRate.name}} value="3" (click)="starClicked($event)">
     <label for="3"></label>
-    <input type="radio" name={{travel.name}} value="2" (click)="starClicked($event)">
+    <input type="radio" name={{travelToRate.name}} value="2" (click)="starClicked($event)">
     <label for="2"></label>
-    <input type="radio" name={{travel.name}} value="1" (click)="starClicked($event)">
+    <input type="radio" name={{travelToRate.name}} value="1" (click)="starClicked($event)">
     <label for="1"></label>
 </div>
-<div class="score"> Ogólna ocena: <strong >{{travel.rating}} <br> </strong> Ilość ocen: {{travel.ratingCounter}} </div>
+<div class="score"> 
+    <p *ngIf="travelToRate.rateCount != 0">Średnia ocen: <strong >{{travelToRate.rateSum/travelToRate.rateCount}} <br> </strong> </p>
+    <p  *ngIf="travelToRate.rateCount == 0"> <i> Nikt jeszcze nie ocenił tej wycieczki</i></p>
+    Ilość ocen: {{travelToRate.rateCount}} </div>
+

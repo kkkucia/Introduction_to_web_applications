@@ -16,14 +16,10 @@ export class BusketHandlingService implements OnInit {
   busket: IBusket;
 
   private chosedTravelsList: Subject<Map<ITravel, number>> = new Subject<Map<ITravel, number>>;
-
   private allCostAdded: Subject<number> = new Subject<number>;
-
   private travelCounterNumber: Subject<number> = new Subject<number>;
-
   private actualCurrency: Subject<number> = new Subject<number>;
 
-  constructor() { }
   ngOnInit(): void {
     this.allCost = 0;
     this.travelCounter = 0;
@@ -85,14 +81,6 @@ export class BusketHandlingService implements OnInit {
     this.actualCurrency.next(this.currency);
   }
 
-  getChosedTravelsList(): Observable<Map<ITravel, number>> {
-    return this.chosedTravelsList.asObservable();
-  }
-
-  getAllcost(): Observable<number> {
-    return this.allCostAdded.asObservable();
-  }
-
   getBusket(): IBusket {
     this.busket = {
       "allCost": this.allCost,
@@ -128,5 +116,13 @@ export class BusketHandlingService implements OnInit {
 
   getActualCurrency(): Observable<number> {
     return this.actualCurrency.asObservable();
+  }
+
+  getChosedTravelsList(): Observable<Map<ITravel, number>> {
+    return this.chosedTravelsList.asObservable();
+  }
+
+  getAllcost(): Observable<number> {
+    return this.allCostAdded.asObservable();
   }
 }

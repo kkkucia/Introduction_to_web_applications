@@ -9,18 +9,17 @@
         </div>
     </div>
     <h1>Historia Twoich wycieczek:</h1>
-
     <hr>
-    <div *ngFor="let travel of historyTravels | state: state | keyvalue">
+    <div *ngFor="let travel of historyTravels | state: state ">
         <div class="travel">
-            <h2> <strong> {{travel.key.name}}</strong></h2>
-            <p>Kraj: {{travel.key.country}}</p>
-            <p>{{travel.key.startDate}} - {{travel.key.endDate}}</p>
-            <p>Ilość biletów: {{travel.value}}</p>
-            <p>Cena jednostkowa: {{travel.key.price | currency : currency}}</p>
-            <p>Cena za wszystkie bilety: {{(travel.key.price * travel.value) | currency : currency}}</p>
-            <p>{{travel.key.buyDate | date: 'd/MM/YYYY'}}</p>
-            <p> <strong> Status: {{travel.key.state}}</strong></p>
+            <h2> <strong> {{travel.name}}</strong></h2>
+            <p>Kraj: {{travel.country}}</p>
+            <p>{{travel.startDate}} - {{travel.endDate}}</p>
+            <p>Ilość biletów: {{travel.tickets}}</p>
+            <p>Cena jednostkowa: {{travel.price | currency : currency}}</p>
+            <p>Cena za wszystkie bilety: {{(travel.price * travel.tickets) | currency : currency}}</p>
+            <p>{{travel.buyDate | date: 'd/MM/YYYY'}}</p>
+            <p> <strong> Status: Kupiona</strong></p>
         </div>
     </div>
 

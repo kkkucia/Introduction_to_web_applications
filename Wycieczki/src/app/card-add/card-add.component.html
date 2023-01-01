@@ -1,3 +1,4 @@
+<app-card-list></app-card-list>
 <form [formGroup]="modelForm" (ngSubmit)="onSubmit(modelForm)">
     <h3>DODAJ WYCIECZKĘ</h3>
     <label>Nazwa wycieczki:</label><input name="name" formControlName="name">
@@ -15,3 +16,4 @@
     <p *ngIf="datePastError">Masz daty z przeszłości!</p>
     <p *ngIf="correct">Dodano wycieczkę!</p>
 </form>
+

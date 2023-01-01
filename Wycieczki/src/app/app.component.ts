@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { BusketHandlingService } from './services/busket-handling.service';
 import { HandleTravelsService } from './services/handle-travels.service';
-import { CommentHandlingService } from './services/comment-handling.service';
 import { HistoryHandlingService } from './services/history-handling.service';
+import { CommentsHandlingService } from './services/comments-handling.service';
 
 
 @Component({
@@ -12,7 +12,7 @@ import { HistoryHandlingService } from './services/history-handling.service';
 })
 export class AppComponent implements OnInit {
 
-  constructor(private busketHandleService: BusketHandlingService, private travelHandling: HandleTravelsService, private commentHandlingService: CommentHandlingService, private historyService: HistoryHandlingService) { }
+  constructor(private busketHandleService: BusketHandlingService, private travelHandling: HandleTravelsService, private commentHandlingService: CommentsHandlingService, private historyService: HistoryHandlingService) { }
   ngOnInit(): void {
     this.busketHandleService.ngOnInit();
     this.commentHandlingService.ngOnInit();

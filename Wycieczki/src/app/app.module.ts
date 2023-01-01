@@ -23,7 +23,6 @@ import { TravelHistoryComponent } from './travel-history/travel-history.componen
 import { SingleTravelComponent } from './single-travel/single-travel.component';
 import { NgImageSliderModule } from 'ng-image-slider';
 import { CommentsSectionComponent } from './comments-section/comments-section.component';
-import { CommentHandlingService } from './services/comment-handling.service';
 import { DatePipe } from '@angular/common';
 import { StatePipe } from './shared/state.pipe';
 import { initializeApp,provideFirebaseApp } from '@angular/fire/app';
@@ -31,6 +30,11 @@ import { environment } from '../environments/environment';
 import { provideDatabase,getDatabase } from '@angular/fire/database';
 import { FirebaseDataService } from './services/firebase-data.service';
 import { AngularFireModule } from '@angular/fire/compat';
+import { LoginComponent } from './login/login.component';
+import { RegistrationComponent } from './registration/registration.component';
+import { AuthenticationService } from './services/authentication.service';
+import { AdminViewComponent } from './admin-view/admin-view.component';
+import { CommentsHandlingService } from './services/comments-handling.service';
 
 @NgModule({
   declarations: [
@@ -50,7 +54,10 @@ import { AngularFireModule } from '@angular/fire/compat';
     TravelHistoryComponent,
     SingleTravelComponent,
     CommentsSectionComponent,
-    StatePipe
+    StatePipe,
+    LoginComponent,
+    RegistrationComponent,
+    AdminViewComponent,
   ],
   imports: [
     BrowserModule,
@@ -62,7 +69,7 @@ import { AngularFireModule } from '@angular/fire/compat';
     provideFirebaseApp(() => initializeApp(environment.firebase)),
     provideDatabase(() => getDatabase())
   ],
-  providers: [FirebaseDataService, DatePipe, FilterRangesService, HandleTravelsService, BusketHandlingService, CommentHandlingService,],
+  providers: [FirebaseDataService, DatePipe, FilterRangesService, HandleTravelsService, BusketHandlingService, CommentsHandlingService, AuthenticationService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -1,0 +1,10 @@
+<div class="formBox">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit(loginForm)">
+        <h2>ZALOGUJ SIĘ</h2>
+        <label>Email: </label><input name="email" formControlName="email" placeholder="Email">
+        <label>Hasło: </label><input name="password" type="password" formControlName="password" placeholder="Hasło">
+        <p>Hasło powinno zawierać minimum 8 znaków.</p>
+        <button type="submit" [disabled]="!loginForm.valid">Potwierdź dane</button>
+        <p *ngIf="error">Wprowadź poprawne dane!</p>
+    </form>
+</div>

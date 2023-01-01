@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter, OnInit } from '@angular/core';
 import { ITravel } from '../interfaces/travel';
+import { AuthenticationService } from '../services/authentication.service';
 import { BusketHandlingService } from '../services/busket-handling.service';
 import { FilterRangesService } from '../services/filter-ranges.service';
 
@@ -25,7 +26,7 @@ export class CardComponent implements OnInit {
   lastPlaces: boolean;
   allCost: number;
 
-  constructor(private busketHandleService: BusketHandlingService, private filterService: FilterRangesService) {}
+  constructor(private busketHandleService: BusketHandlingService, private filterService: FilterRangesService, public auth: AuthenticationService) {}
   ngOnInit(): void {
     this.places = this.travel.places;
     this.busketHandleService.getChosedTravelsList().subscribe(chosedTravelsList => {

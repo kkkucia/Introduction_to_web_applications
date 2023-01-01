@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ITravel } from '../interfaces/travel';
 import { BusketHandlingService } from '../services/busket-handling.service';
 
 import { HistoryHandlingService } from '../services/history-handling.service';
@@ -11,7 +10,7 @@ import { HistoryHandlingService } from '../services/history-handling.service';
 })
 export class TravelHistoryComponent implements OnInit {
 
-  historyTravels: Map<ITravel, number>;
+  historyTravels : any[] = [];
   currency: number;
   state: string = 'all';
 
@@ -19,23 +18,17 @@ export class TravelHistoryComponent implements OnInit {
 
   }
   ngOnInit(): void {
-    this.historyHandleService.getTravelsHistoryList().subscribe(history => {
-      this.historyTravels = history;
-    });
+      this.historyTravels = this.historyHandleService.giveTravelHistory();
+      console.log(this.historyTravels)
+      
+
     this.busketHandleService.getActualCurrency().subscribe(newCurrency => {
       this.currency = newCurrency;
     });
-
-    this.takeTravels();
   }
-
-  takeTravels(): void {
-    this.historyTravels = this.historyHandleService.giveTravelHistory();
-  }
+  
   changeState(state: string) {
-    this.state = state;
+    this.state = state
   }
-
-
 }
 

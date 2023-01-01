@@ -1,18 +1,10 @@
-<div class="post" id="forms">
+<div *ngIf="canBeCommented" class="post" id="forms">
     <h2>Dodaj Opinie!</h2>
-
     <form [formGroup]="postForm">
         <div>
-            <label for="login">Login: </label>
-            <input type="text" formControlName="login">
-        </div>
-        <div>
-            <label for="name">Nazwa wycieczki: </label>
-            <input type="text" formControlName="name">
-        </div>
-        <div>
             <label for="opinion">Opinia: </label>
-            <input type="text" cols="60" rows=5 formControlName="opinion">
+            <textarea type="text" size="30" rows="5" formControlName="opinion" cols="40" 
+            rows="5" placeholder="Tu wpisz swoją opinię..."></textarea>
         </div>
         <div>
             <label for="date">Data zakupu: </label>
@@ -23,12 +15,13 @@
         <button type="submit" [disabled]="!postForm.valid" (click)="sendOpinion()">Dodaj opinie!</button>
     </div>
     <ul class="errors">
-        <li *ngIf="!postForm.get('login')!.valid">Podaj login.</li>
-        <li *ngIf="!postForm.get('name')!.valid">Podaj nazwę wycieczki.</li>
         <li *ngIf="!postForm.get('opinion')!.valid">Opinia powinna zawierać od 50 do 500 znaków</li>
     </ul>
-
+    
 </div>
+<h2>Opinie!</h2>
+<div *ngIf="opinions.length == 0" id="white">Brak opinii o tej wycieczce.</div>
+
 <div class="post" *ngFor="let opinion of opinions">
     <h3>{{opinion.name}}</h3>
     <p>{{opinion.date}}</p>

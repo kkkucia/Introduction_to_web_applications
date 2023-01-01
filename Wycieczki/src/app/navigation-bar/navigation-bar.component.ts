@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ITravel } from '../interfaces/travel';
+import { AuthenticationService } from '../services/authentication.service';
 import { BusketHandlingService } from '../services/busket-handling.service';
 import { HistoryHandlingService } from '../services/history-handling.service';
 
@@ -14,13 +15,13 @@ export class NavigationBarComponent implements OnInit {
   counter = 0;
   currency = 0;
   cost = 0;
-  login = "login";
   nearTravel: string = "Brak zbliżających się wycieczek!"
   historyTravels: Map<ITravel, number>;
 
-  constructor(private busketHandleService: BusketHandlingService, private historyTravelService: HistoryHandlingService) { }
+  constructor(private busketHandleService: BusketHandlingService, private historyTravelService: HistoryHandlingService, public auth: AuthenticationService) { }
 
   ngOnInit(): void {
+  
     this.busketHandleService.getTravelCounter().subscribe(travelCnt => {
       this.counter = travelCnt;
     });

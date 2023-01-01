@@ -4,9 +4,9 @@
         background: linear-gradient(90deg, rgb(192, 192, 192) 9%, rgb(255, 255, 255) 50%, rgb(206, 206, 206) 91%);
         box-shadow: 8px 8px 24px 0px rgba(255, 255, 255, 0.781);
         border: 1px solid black;
-        margin: 0px 20px;
+        margin: 10px 20px;
         padding: 2px;
-        height: 510px;
+        height: 540px;
         width: 240px;
         display: flex;
         flex-direction: column;
@@ -57,7 +57,7 @@
     #delete {
         background-color: rgba(255, 255, 255, 0.63);
         color: black;
-        transform: translateY(33px) translateX(-14px) rotate(-90deg);
+        transform: translateY(44px) translateX(-14px) rotate(-90deg);
         cursor: pointer;
     }
 

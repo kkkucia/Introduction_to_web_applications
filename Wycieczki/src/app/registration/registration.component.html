@@ -1,0 +1,12 @@
+<div class="formBox">
+    <form [formGroup]="registrationForm" (ngSubmit)="onSubmit(registrationForm)">
+        <h2>ZAREJESTRUJ SIĘ</h2>
+        <label>Email: </label><input name="email" formControlName="email" placeholder="Email">
+        <label>Hasło: </label><input name="password" type="password" formControlName="password" placeholder="Hasło">
+        <p>Hasło powinno zawierać minimum 8 znaków.</p>
+        <button type="submit" [disabled]="!registrationForm.valid">Potwierdź dane</button>
+        <p *ngIf="error">Taki użytkownik już isntnieje!</p>
+        <p *ngIf="error">Zaloguj się lub wprowadź inne dane.</p>
+        <p *ngIf="correct">Zarejestrowano użytkownika!</p>
+    </form>
+</div>

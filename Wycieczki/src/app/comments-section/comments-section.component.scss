@@ -1,4 +1,8 @@
 :host {
+    h2, #white{
+        color: white;
+        text-align: center;
+    }
     form {
         display: flex;
         flex-direction: row;
@@ -23,6 +27,9 @@
     .post>p:nth-of-type(1) {
         text-align: left;
     }
+    .post>h2, p{
+        color: black;
+    }
 
     #forms {
         background: linear-gradient(90deg, rgb(192, 192, 192) 9%, rgb(255, 255, 255) 50%, rgb(206, 206, 206) 91%);
@@ -32,6 +39,12 @@
         display: flex;
         flex-direction: row;
         justify-content: space-around;
+    }
+
+    #forms>form > div{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
     }
 
     button {
@@ -48,4 +61,5 @@
         background-color: white;
         color: black;
     }
+
 }

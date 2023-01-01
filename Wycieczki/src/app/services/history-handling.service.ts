@@ -1,56 +1,63 @@
 import { Injectable, OnInit } from '@angular/core';
-import { Observable, Subject } from 'rxjs';
+import { first, Observable, Subject } from 'rxjs';
 import { ITravel } from '../interfaces/travel';
+import { AuthenticationService } from './authentication.service';
+import { FirebaseDataService } from './firebase-data.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HistoryHandlingService implements OnInit {
 
-  historyTravels: Map<ITravel, number>;
+  historyTravels: any[] = [];
   notification: string;
-
-  private history: Subject<Map<ITravel, number>> = new Subject<Map<ITravel, number>>;
   private travelNofi: Subject<string> = new Subject<string>;
 
-  constructor() { }
+  constructor(private db: FirebaseDataService, public auth : AuthenticationService) { }
 
   ngOnInit(): void {
-    this.historyTravels = new Map<ITravel, number>;
+    this.db.getHistory().subscribe((items: any) => {
+      for(let i of items){
+        if(i.payload.val().customer == String(this.auth.userData.uid)){
+          this.historyTravels.push(i.payload.val())
+        }
+      }
+    })
+
     this.notification = "Brak zbliżających się wycieczek!";
     this.travelNofi.next(this.notification);
   }
 
   addTravelToHistory(travel: ITravel, tickets: number) {
-    this.historyTravels.set(travel, tickets);
-    this.history.next(this.historyTravels);
+    this.db.addToHistory(travel, tickets, this.auth.userData.uid)
     this.getTheNearestTravel();
   }
 
-  getTravelsHistoryList(): Observable<Map<ITravel, number>> {
-    return this.history.asObservable();
-  }
-
-  getTravelsNofication(): Observable<string> {
-    return this.travelNofi.asObservable();
-  }
-
-  giveTravelHistory(): Map<ITravel, number> {
-    return this.historyTravels;
-  }
-
   getTheNearestTravel(): void {
-    let travels: ITravel[] = [];
-
-    for (let t of this.historyTravels) {
-      travels.push(t[0]);
-    }
-    if (travels.length != 0) {
-      let nearest = travels.sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())[0];
+      let future = this.historyTravels.filter((t) => new Date(t.endDate) >= new Date());
+      if (future.length != 0) {
+      let nearest = future.sort((a, b) => new Date(b.startDate).getTime() - new Date(a.startDate).getTime())[0];
       this.notification = "Najbliższa wycieczka to: " + nearest.name;
     } else {
       this.notification = "Brak zbliżających się wycieczek!";
     }
     this.travelNofi.next(this.notification);
   }
+
+  giveTravelHistory(): any[] {
+    let history: any[] = [];
+    this.db.getHistory().subscribe((items: any) => {
+      for(let i of items){
+        if(i.payload.val().customer == String(this.auth.userData.uid)){
+          history.push(i.payload.val())
+        }
+      }
+    })
+    return history;
+  }
+  
+  getTravelsNofication(): Observable<string> {
+    return this.travelNofi.asObservable();
+  }
+
 }

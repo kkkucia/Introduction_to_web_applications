@@ -1,0 +1,45 @@
+<div id="bigBox">
+    <div class="miniBox">
+        <h2>Zmień persystancję danych</h2>
+        <button (click)="changePersistence('Local')">Local</button>
+        <button (click)="changePersistence('Session')">Session</button>
+        <button (click)="changePersistence('None')">None</button>
+
+        <p>Aktualna persystancja: {{persistence  | uppercase}}</p>
+    </div>
+
+    <div class="miniBox">
+    <h2>Użytkownicy</h2>
+    <div *ngFor="let user of users" class="oneUser">
+        <p><strong style="color: 'rgb(0, 201, 117)'">Email: </strong> {{ user.email }}</p>
+        <p><strong style="color: 'rgb(0, 201, 117)'">UID: </strong> {{ user.uid }}</p>
+        <hr>
+    <div class="userRoles">
+        <div class="oneRole">
+            <p>GOŚĆ: {{user.roles.guest}} </p>
+            <button class="roleButton" (click)="setUserRole(user.uid, 'guest', !user.roles.guest)">Zmień</button>
+        </div>
+        <div class="oneRole">
+            <p>KLIENT: {{user.roles.client}} </p>
+            <button class="roleButton" (click)="setUserRole(user.uid, 'client', !user.roles.client)">Zmień</button>
+        </div>
+        <div class="oneRole">
+            <p>MENADŻER: {{user.roles.manager}} </p>
+            <button class="roleButton" (click)="setUserRole(user.uid, 'manager', !user.roles.manager)">Zmień</button>
+        </div>
+        <div class="oneRole">
+            <p>ADMIN: {{user.roles.admin}} </p>
+            <button class="roleButton" (click)="setUserRole(user.uid, 'admin', !user.roles.admin)">Zmień</button>
+        </div>
+        <div class="oneRole" *ngIf="user.uid != this.auth.userData.uid and user.roles.client == true">
+            <p>ZBANOWANY: {{user.roles.banned}} </p>
+            <button class="roleButton" (click)="setUserRole(user.uid, 'banned', !user.roles.banned)">
+                <p *ngIf=" user.roles.banned == false">Banuj</p>
+                <p *ngIf="user.roles.banned == true">Usuń ban</p>
+            </button>
+        </div>
+    </div>
+    </div>
+        
+
+</div>

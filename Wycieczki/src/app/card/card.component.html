@@ -1,4 +1,4 @@
-<button id="delete" (click)="clickedRemove()">Usuń</button>
+<button id="delete" (click)="clickedRemove()" *ngIf="auth.userRoles.manager == true || auth.userRoles.admin == true">Usuń</button>
 <div class="card" [ngStyle]="{'box-shadow' : getShadowColor()}">
     <h3>{{travel.name | uppercase}}</h3>
     <a routerLink="/cardList/{{travel.id}}"><img src="{{travel.image}}" alt=""></a>

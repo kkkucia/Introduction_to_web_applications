@@ -1,6 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { ITravel } from '../interfaces/travel';
+import { AuthenticationService } from '../services/authentication.service';
 import { BusketHandlingService } from '../services/busket-handling.service';
+import { HandleTravelsService } from '../services/handle-travels.service';
 
 @Component({
   selector: 'app-reserve-place',
@@ -17,8 +20,11 @@ export class ReservePlaceComponent implements OnInit {
   ifMaxPlaces: boolean;
   ifSoldOut: boolean;
   lastPlaces: boolean;
+  numberForm = new FormGroup({
+  newTravelPlaces: new FormControl('')
+  })
 
-  constructor(private busketHandleService: BusketHandlingService) {
+  constructor(private busketHandleService: BusketHandlingService, private handleTravels: HandleTravelsService,  public auth: AuthenticationService) {
 
   }
   ngOnInit(): void {
@@ -48,5 +54,12 @@ export class ReservePlaceComponent implements OnInit {
     this.ifSoldOut = (this.places == 0);
     this.ifMaxPlaces = (this.places == this.travel.places);
     this.lastPlaces = (this.places <= 3);
+  }
+
+  changeTravelPlaces(){
+    let num = Number(this.numberForm.get('newTravelPlaces')!.value);
+    if (num != null){
+      this.handleTravels.changeTravelPlacesNumber(this.travel, num)
+    }
   }
 }

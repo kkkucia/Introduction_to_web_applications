@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ITravel } from '../interfaces/travel';
 import { ITravelRanges } from '../interfaces/travelRanges';
+import { AuthenticationService } from '../services/authentication.service';
 import { BusketHandlingService } from '../services/busket-handling.service';
 import { FilterRangesService } from '../services/filter-ranges.service';
 import { HandleTravelsService } from '../services/handle-travels.service';
@@ -13,8 +14,8 @@ import { HandleTravelsService } from '../services/handle-travels.service';
 
 
 export class CardListComponent implements OnInit {
-  [x: string]: any;
-
+  [x: string]: any
+  manage: boolean = false;
   travels: ITravel[] = new Array<ITravel>;
   travelsAll: ITravel[];
   travelRanges: ITravelRanges;
@@ -26,10 +27,13 @@ export class CardListComponent implements OnInit {
   chosenTravels: Map<ITravel, number>;
   allCost: number;
 
-  constructor(private filterService: FilterRangesService, private handligTravelService: HandleTravelsService, private busketHandleService: BusketHandlingService) {
+  constructor(private filterService: FilterRangesService, private handligTravelService: HandleTravelsService, private busketHandleService: BusketHandlingService, public auth: AuthenticationService) {
   }
 
   ngOnInit(): void {
+    if(this.auth.userRoles.admin == true || this.auth.userRoles.manager == true){
+      this.manage = true;
+    }
     this.travels = this.handligTravelService.returnTravels()
     this.filterService.checkPrices(this.travels);
     this.lowPrice = this.filterService.givePrices()[0];

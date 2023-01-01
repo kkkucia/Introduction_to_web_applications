@@ -16,17 +16,15 @@ export class FilterRangesService {
     maxPrice: 100000,
     ratings: new Set<number>
   }
+
   countryList: Map<string, boolean> = new Map<string, boolean>();
-   highPrice = Number.NEGATIVE_INFINITY;
-   lowPrice = Number.POSITIVE_INFINITY;
-
+  highPrice = Number.NEGATIVE_INFINITY;
+  lowPrice = Number.POSITIVE_INFINITY;
   private ranges: Subject<ITravelRanges> = new Subject<ITravelRanges>;
-
   private bigPrice: Subject<number> = new Subject<number>;
   private smallPrice: Subject<number> = new Subject<number>;
   private countriesList: Subject<Map<string, boolean>> = new Subject<Map<string, boolean>>;
 
-  constructor() { }
 
   setravelRanges(travels: ITravel[]) {
     for (let travel of travels) {
@@ -38,17 +36,13 @@ export class FilterRangesService {
       }
     }
     this.countriesList.next(this.countryList);
-
     this.travelRanges.maxPrice = travels.reduce((a, b) => (a.price > b.price) ? a : b).price;
     this.travelRanges.minPrice = travels.reduce((a, b) => (a.price < b.price) ? a : b).price;
-
     let firstTimeTravel = travels.reduce((a, b) => (new Date(a.startDate) < new Date(b.startDate) ? a : b));
     let lastTimeTravel = travels.reduce((a, b) => (new Date(a.endDate) > new Date(b.endDate) ? a : b));
     this.travelRanges.startDate = new Date(firstTimeTravel.startDate);
     this.travelRanges.endDate = new Date(lastTimeTravel.endDate);
-
     this.travelRanges.ratings.add(0).add(1).add(2).add(3).add(4).add(5);
-
     this.ranges.next(this.travelRanges);
   }
 
@@ -103,15 +97,15 @@ export class FilterRangesService {
     this.ranges.next(this.travelRanges);
   }
 
-  delateFromCountryList(country: string, travelsAll :ITravel[]){
-    let numTravelsofThisCountry = travelsAll.filter((t)=> t.country == country).length;
-    if (numTravelsofThisCountry < 2){
+  delateFromCountryList(country: string, travelsAll: ITravel[]) {
+    let numTravelsofThisCountry = travelsAll.filter((t) => t.country == country).length;
+    if (numTravelsofThisCountry < 2) {
       this.countryList.delete(country);
     }
     this.countriesList.next(this.countryList);
   }
 
-  addToCountryList(country:string){
+  addToCountryList(country: string) {
     if (!this.countryList.has(country)) {
       this.countryList.set(country, true);
     }
@@ -138,8 +132,7 @@ export class FilterRangesService {
     return this.smallPrice.asObservable();
   }
 
-  givePrices(): number[]{
+  givePrices(): number[] {
     return [this.lowPrice, this.highPrice];
   }
-
 }

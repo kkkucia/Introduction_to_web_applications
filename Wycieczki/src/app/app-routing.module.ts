@@ -7,20 +7,30 @@ import { CardAddComponent } from './card-add/card-add.component';
 import { BusketComponent } from './busket/busket.component';
 import { TravelHistoryComponent } from './travel-history/travel-history.component';
 import { SingleTravelComponent } from './single-travel/single-travel.component';
+import { AuthGuard } from './guards/guard/auth.guard';
+import { ManagerGuard } from './guards/guard/manager.guard';
+import { AdminGuard } from './guards/guard/admin.guard';
+import { RegistrationComponent } from './registration/registration.component';
+import { LoginComponent } from './login/login.component';
+import { AdminViewComponent } from './admin-view/admin-view.component';
 
 
 const routes: Routes = [
-  { path: ' ', component: MainPageComponent },
   { path: 'mainPage', component: MainPageComponent },
-  { path: 'cardList/:id', component: SingleTravelComponent },
+  {path: 'registracion', component: RegistrationComponent},
+  {path: 'login', component: LoginComponent},
+  { path: 'cardList/:id', component: SingleTravelComponent, canActivate: [AuthGuard] },
   { path: 'cardList', component: CardListComponent },
-  { path: 'cardAdd', component: CardAddComponent },
-  { path: 'busket', component: BusketComponent },
-  { path: 'history', component: TravelHistoryComponent },
+  { path: 'adminViewCardList', component: CardAddComponent, canActivate: [AdminGuard]},
+  { path: 'busket', component: BusketComponent, canActivate: [AuthGuard] },
+  { path: 'history', component: TravelHistoryComponent, canActivate: [AuthGuard] },
+  {path: 'adminView', component: AdminViewComponent, canActivate:[AdminGuard]},
+  {path: 'managerView', component: CardAddComponent, canActivate:[ManagerGuard]},
+  { path: 'history', component: TravelHistoryComponent, canActivate: [AuthGuard]},
+  { path: ' ', component: MainPageComponent },
   { path: '**', component: MainPageComponent }
 
 ];
-
 
 @NgModule({
   declarations: [],

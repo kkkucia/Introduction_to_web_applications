@@ -2,7 +2,9 @@ import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
 import { ITravel } from '../interfaces/travel';
+import { AuthenticationService } from '../services/authentication.service';
 import { BusketHandlingService } from '../services/busket-handling.service';
+import { FirebaseDataService } from '../services/firebase-data.service';
 import { HandleTravelsService } from '../services/handle-travels.service';
 
 
@@ -21,8 +23,9 @@ export class SingleTravelComponent implements OnInit, OnDestroy {
   currency: number;
   places: number;
   imgCollection: Array<object>;
+  travelToRate: any;
 
-  constructor(private route: ActivatedRoute, private handligTravelService: HandleTravelsService, private busketHandleService: BusketHandlingService) {
+  constructor(private route: ActivatedRoute, private handligTravelService: HandleTravelsService, private busketHandleService: BusketHandlingService, public auth: AuthenticationService, public db: FirebaseDataService) {
   }
 
   ngOnInit(): void {
@@ -50,6 +53,14 @@ export class SingleTravelComponent implements OnInit, OnDestroy {
     this.currency = this.busketHandleService.getBusket().currency;
 
     this.prepareImgCollection();
+
+    this.db.getTravels().subscribe(items => {
+      for(let i of items){
+        if (this.travel.name == i.name && this.travel.country == i.country && this.travel.description == i.description){
+          this.travelToRate = i;
+        }
+      }
+    })
   }
 
   ngOnDestroy(): void {
@@ -70,5 +81,7 @@ export class SingleTravelComponent implements OnInit, OnDestroy {
       this.imgCollection.push(obj);
     }
   }
+
+  
 }
 

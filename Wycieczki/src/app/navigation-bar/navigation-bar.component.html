@@ -1,5 +1,5 @@
 <nav>
-    <div id="logo"><b> &#x291C;PODRÓŻE MAŁE I DUŻE&#x291B;</b></div>
+    <div id="logo"><b> &#x291C;PODRÓŻE&#x291B;</b></div>
     <input id="mobileMenu" type="checkbox" />
     <label class='burgerBox' for="mobileMenu">
         <div class='burger'>
@@ -9,37 +9,58 @@
 
     <ul class="menu">
         <a routerLink="mainPage" routerLinkActive="active">
-            <li>STRONA GŁÓWNA</li>
+            <li>Strona Główna</li>
         </a>
-        <a routerLink="cardList" routerLinkActive="active">
-            <li>WYCIECZKI</li>
+        <a routerLink="cardList" routerLinkActive="active" *ngIf="auth.userRoles.admin != true && auth.userRoles.manager != true">
+            <li>Wycieczki</li>
         </a>
-        <a routerLink="cardAdd" routerLinkActive="active">
-            <li>DODAJ WYCIECZKĘ</li>
+        <a routerLink="adminViewCardList" routerLinkActive="active" *ngIf="auth.userRoles.admin == true && auth.userRoles.manager != true">
+            <li>Zarządzaj wycieczkami</li>
         </a>
-        <a routerLink="busket" routerLinkActive="active">
-            <li>KOSZYK</li>
+        <a routerLink="managerView" routerLinkActive="active" *ngIf="auth.userRoles.manager == true && auth.userRoles.admin != true">
+            <li>Zarządzaj wycieczkami</li>
         </a>
-        <a routerLink="history" routerLinkActive="active">
-            <li>HISTORIA</li>
+        <a routerLink="busket" routerLinkActive="active" *ngIf="auth.userData != null">
+            <li>Koszyk</li>
         </a>
+        <a routerLink="history" routerLinkActive="active" *ngIf="auth.userData != null">
+            <li>Historia</li>
+        </a>
+
+        <a routerLink="registracion" routerLinkActive="active" *ngIf="auth.userData == null">
+            <li>Zarejestruj się</li>
+        </a>
+
+        <a routerLink="login" routerLinkActive="active" *ngIf="auth.userData == null">
+            <li>Zaloguj się</li>
+        </a>
+
+        <a routerLink="adminView" routerLinkActive="active" *ngIf="auth.userRoles.admin == true">
+            <li>Admin</li>
+        </a>
+
+        <a routerLink="logout" routerLinkActive="active" *ngIf="auth.userData != null" (click)="auth.signOut()">
+            <li>Wyloguj się</li>
+        </a>
+
     </ul>
 </nav>
 <div id="info">
-    <div id="travelNum">
-        <p id="num">{{nearTravel}}</p>
+    <div *ngIf="auth.userData != null">
+        <p>{{nearTravel}}</p>
     </div>
 
-    <div id="travelNum"><img src="../../assets/icons8-user-64.png" alt="Wycieczek: " width="40px">
-        <p id="num">{{login}}</p>
+    <div><img src="../../assets/icons8-earth-globe-96.png" alt="Wycieczek: " width="40px">
+        <p>{{counter}}</p>
     </div>
 
-    <div id="travelNum"><img src="../../assets/icons8-earth-globe-96.png" alt="Wycieczek: " width="40px">
-        <p id="num">{{counter}}</p>
+    <div><img src="../../assets/icons8-basket-64.png" alt="Wycieczek: " width="40px">
+        <p>{{cost | currency: currency }}</p>
     </div>
 
-    <div id="travelNum"><img src="../../assets/icons8-basket-64.png" alt="Wycieczek: " width="40px">
-        <p id="num">{{cost | currency: currency }}</p>
+    <div><img src="../../assets/icons8-user-64.png" alt="Wycieczek: " width="40px">
+        <p *ngIf="auth.userData != null">{{auth.userData.email}}</p>
+        <p *ngIf="auth.userData == null">Gość</p>
     </div>
 
 </div>
