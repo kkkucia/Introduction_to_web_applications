@@ -1,11 +1,10 @@
 <div id="bigBox">
     <div class="miniBox">
-        <h2>Zmień persystancję danych</h2>
-        <button (click)="changePersistence('Local')">Local</button>
-        <button (click)="changePersistence('Session')">Session</button>
-        <button (click)="changePersistence('None')">None</button>
-
-        <p>Aktualna persystancja: {{persistence  | uppercase}}</p>
+        <h2>Ustaw persystancję danych</h2>
+        <button (click)="changePersistence('local')">Local</button>
+        <button (click)="changePersistence('session')">Session</button>
+        <button (click)="changePersistence('none')">None</button>
+        <p *ngIf="changedPersistence">Aktualna persystancja: {{persistence  | uppercase}}</p>
     </div>
 
     <div class="miniBox">
@@ -31,7 +30,7 @@
             <p>ADMIN: {{user.roles.admin}} </p>
             <button class="roleButton" (click)="setUserRole(user.uid, 'admin', !user.roles.admin)">Zmień</button>
         </div>
-        <div class="oneRole" *ngIf="user.uid != this.auth.userData.uid and user.roles.client == true">
+        <div class="oneRole" *ngIf="user.uid != this.auth.userData.uid && user.roles.client == true">
             <p>ZBANOWANY: {{user.roles.banned}} </p>
             <button class="roleButton" (click)="setUserRole(user.uid, 'banned', !user.roles.banned)">
                 <p *ngIf=" user.roles.banned == false">Banuj</p>

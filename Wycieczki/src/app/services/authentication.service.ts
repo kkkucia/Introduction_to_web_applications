@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { Roles } from '../interfaces/roles';
 import { User } from '../interfaces/user';
 import { FirebaseDataService } from './firebase-data.service';
+import { getAuth, browserSessionPersistence, inMemoryPersistence, browserLocalPersistence} from "firebase/auth";
+import { update } from 'firebase/database';
 
 @Injectable({
   providedIn: 'root'
@@ -18,12 +20,19 @@ export class AuthenticationService{
     manager: false,
     client: false,
   };
-  
-  persistence: string = "local";
-
+  persistence: string;
+  perSub: any;
 
   constructor(private fireAuth: AngularFireAuth, private router: Router, private db: FirebaseDataService) {
-    
+
+
+    this.perSub = this.db.getPeristance().subscribe((change:any) => {
+      for(let i of change){
+        this.persistence = i.payload.val();
+        break;
+      }
+  })
+  
 
     fireAuth.authState.subscribe(async (event: any) => {
       if (event) {
@@ -42,6 +51,7 @@ export class AuthenticationService{
         }
       }
     })
+
   }
 
   getAuthenticated(): Observable<any> {
@@ -63,27 +73,38 @@ export class AuthenticationService{
       .then((userInfo) => {
         let newUser = new User(userInfo.user);
         this.db.safeNewUser(newUser);
-        this.router.navigate(['cardList']);
+        this.router.navigate(['mainPage']);
       })
       .catch((error) => {
         alert(error.message);
       })
   }
 
-  signInEmailPass(email: string, password: string) {
-    return this.fireAuth.setPersistence(this.persistence).then(() => {
-      return this.fireAuth.signInWithEmailAndPassword(email, password)
-        .then(() => {
-          this.router.navigate(['cardList']);
-        })
-        .catch((error) => {
-          alert(error.message);
-        })
-    })
-  }
-  
+ 
+signInEmailPass(email: string, password: string) {
+  this.changePersistence(this.persistence)
+    return this.fireAuth.signInWithEmailAndPassword(email, password)
+      .then(() => {
+        this.router.navigate(['mainPage']);
+      })
+      .catch((error) => {
+        alert(error.message);
+      })
+}
+
   changePersistence(newPersistence: string) {
     this.persistence = newPersistence;
-    //this.fireAuth.setPersistence(this.persistence)
+    this.db.updatePersistance(newPersistence);
+    const auth = getAuth();
+    switch(this.persistence){
+      case "local":
+        auth.setPersistence(browserLocalPersistence);
+      break;
+      case "session":
+        auth.setPersistence(browserSessionPersistence)
+      break;
+      case "none":
+        auth.setPersistence(inMemoryPersistence)
+    }
   }
 }

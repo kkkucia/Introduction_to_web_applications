@@ -12,8 +12,10 @@ export class AdminViewComponent implements OnInit{
 
 
   constructor(public auth: AuthenticationService, private db:FirebaseDataService){}
-  persistence: string = this.auth.persistence;
+  persistence: string;
+  
   users: User[] = [];
+  changedPersistence:boolean = false;
 
   ngOnInit(): void {
     this.db.getUsers().subscribe((users) => {
@@ -28,9 +30,9 @@ export class AdminViewComponent implements OnInit{
 
   changePersistence(newPersistence: string): void{
     this.persistence = newPersistence;
+    this.changedPersistence = true;
     this.auth.changePersistence(newPersistence);
   }
-
 
   setUserRole(uid: string, role: string, change: boolean){
     this.db.changeUserRole(uid, role, String(change));

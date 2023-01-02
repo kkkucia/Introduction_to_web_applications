@@ -145,4 +145,17 @@ export class FirebaseDataService implements OnInit {
     return this.db.list('comments').snapshotChanges();
   }
 
+  getPeristance(){
+    return this.db.list('persistance').snapshotChanges();
+  }
+
+  updatePersistance(newPersistance: string){
+    console.log("haaa")
+    this.db.list('persistance').snapshotChanges().pipe(first()).subscribe((items: any) => {
+      for (let i of items) {
+          this.db.list('persistance').update(i.payload.key, {val: newPersistance})
+          break;
+      }
+    })
+  }
 }

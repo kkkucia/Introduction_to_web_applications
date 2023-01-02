@@ -19,7 +19,6 @@ export class TravelHistoryComponent implements OnInit {
   }
   ngOnInit(): void {
       this.historyTravels = this.historyHandleService.giveTravelHistory();
-      console.log(this.historyTravels)
       
 
     this.busketHandleService.getActualCurrency().subscribe(newCurrency => {
